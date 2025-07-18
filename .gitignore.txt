@@ -1,0 +1,27 @@
+# Virtual environment
+venv/
+.venv/
+
+# Byte-code files
+__pycache__/
+*.pyc
+
+# Local settings
+.env
+config.local.ini
+
+# Logs
+*.log
+
+# Database
+*.sqlite3
+*.db
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.idea/ # For PyCharm
+*.sublime-project
+*.sublime-workspace

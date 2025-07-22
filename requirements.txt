@@ -3,3 +3,7 @@ mcp
 kivy
 sounddevice
 scipy
+openai-whisper
+torch
+sounddevice
+torch --index-url https://download.pytorch.org/whl/cu121

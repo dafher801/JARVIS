@@ -8,6 +8,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.core.window import Window
+import whisper
 
 FONT_PATH = os.path.join(os.path.dirname(__file__), '..', 'resources', 'font', 'KR_Font.ttf')
 
@@ -15,7 +16,7 @@ class Recorder(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(orientation='vertical', **kwargs)
         self.fs = 16000
-        self.recording = False
+        self.recording_state = 0
         self.audio_data = None
         self.stream = None
         self.record_btn = Button(text='녹음 시작', size_hint=(1, 0.2), font_name=FONT_PATH)
@@ -23,10 +24,14 @@ class Recorder(BoxLayout):
         self.add_widget(self.record_btn)
 
     def toggle_recording(self, instance):
-        if not self.recording:
+        if self.recording_state == 0:
             self.start_recording()
-        else:
+            self.recording_state = 1
+        elif self.recording_state == 1:
             self.stop_recording()
+            self.recording_state = 2
+        else:
+            pass
 
     def start_recording(self):
         self.record_btn.text = '녹음 중...'
@@ -46,7 +51,13 @@ class Recorder(BoxLayout):
             save_path = os.path.join(os.getcwd(), 'recorded_audio.wav')
             write(save_path, self.fs, audio_np)
 
-        self.record_btn.text = '녹음 시작'
+        self.record_btn.text = '기록 시작'
+
+        model = whisper.load_model('large')
+        result = model.transcribe('recorded_audio.wav', language='ko')
+
+        with open('recognized_text.txt', 'w', encoding='utf-8') as f:
+            f.write(result['text'])
 
     def audio_callback(self, indata, frames, time, status):
         if self.recording:

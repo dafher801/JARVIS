@@ -1,0 +1,30 @@
+Before writing the script {SCRIPT_FILE}.cs, we will first list the information about the classes that should be written in this file. We need to list the required member variables and member functions. There may also be cases where other classes that have not yet been written are needed. In such cases, we must not only verify if the class exists within Unity but also check reference_data to confirm if it exists elsewhere.
+{
+  "class_name": {CLASS_NAME},
+  "description": {CLASS_DESCRIPTION},
+  "member_variable": [ <<<Write the list of class member variables>>>
+    {
+      "access_specifier": <<<Write the access specifier for member variables.>>>,
+      "data_type": <<<Write the data type for member variables.>>>,
+      "name": <<<Write the name for member variables.>>>,
+      "initial_value": <<<Write the initial value for member variables.>>>,
+      "description": <<<Briefly explain why this member variable is needed. Also explain when meaningful values are assigned to this member variable.>>>
+    },
+    .....
+  ],
+  "method": [
+    {
+      "access_specifier": <<<Write the access specifier for method.>>>,
+      "return_type": <<<Write the return type for method.>>>,
+      "name": <<<Write the name for method.>>>,
+      "parameter_list": [
+        {
+          "data_type": <<<Write the data type for parameter.>>>,
+          "name": <<<Write the name for parameter.>>>
+        },
+        .....
+      ]
+    },
+    .....
+  ]
+}

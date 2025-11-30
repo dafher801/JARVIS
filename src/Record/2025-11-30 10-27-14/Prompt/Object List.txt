@@ -1,0 +1,16 @@
+From now on, as the first step for reverse-engineering given the game, we will decompose it into object units. All objects are classified into three categories: World, Logic, and Interface. Objects within the game must be listed according to each description. This game will be developed using the Unity engine, and before listing objects, you must consider the features provided internally by the engine itself.
+World: All game-specific objects that exist in the game space, from simple props to triggers, collision boxes, and characters.
+Logic: Objects that serve as managers (like Unity's Manager or Unreal's GameMode), responsible for managing game rules and states.
+Interface: Game-specific objects that serve as interfaces between the player and the game, such as button UI or cameras.
+{
+  "title": <<<Write the official name of the game being analyzed.>>>,
+  "rule": <<<Describe the top-level rules that govern the entire game. Include victory conditions, defeat conditions, ultimate goals of the game, or fundamental principles of gameplay. These rules should be global rules that apply commonly to all systems.>>>,
+  "objects": [
+    {
+      "name": <<<Write the name of this object.>>>,
+      "type": <<<Write one of three types for this object: "World", "Logic", "Interface">>>,
+      "description": <<<Explain the overall role and characteristics of this object in one or two sentences.>>>
+    },
+    .....
+  ]
+}

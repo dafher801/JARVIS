@@ -1,0 +1,21 @@
+{
+  "prefab": {
+    "name": "Paddle",
+    "components": [
+      "SpriteRenderer",
+      "BoxCollider2D",
+      "Rigidbody2D"
+    ],
+    "scripts": [
+      {
+        "name": "PaddleMovement",
+        "role": "Handles the vertical movement of the paddle within the play area boundaries. This script provides a public method for moving the paddle up or down based on input (either from player input or AI commands). It enforces movement constraints to prevent the paddle from moving outside the designated play area by clamping the paddle's vertical position to the top and bottom boundary limits."
+      },
+      {
+        "name": "PaddleBounce",
+        "role": "Manages the collision response when the ball hits the paddle. This script detects collisions with the ball and calculates the appropriate bounce angle based on where the ball hits the paddle surface. It also triggers the ball speed increase mechanism and plays the paddle hit sound effect through communication with the AudioManager."
+      }
+    ]
+  },
+  "children": []
+}

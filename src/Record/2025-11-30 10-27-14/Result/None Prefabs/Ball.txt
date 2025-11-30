@@ -1,0 +1,21 @@
+{
+  "object": {
+    "name": "Ball",
+    "components": [
+      "SpriteRenderer",
+      "CircleCollider2D",
+      "Rigidbody2D"
+    ],
+    "scripts": [
+      {
+        "name": "BallController",
+        "role": "Controls all ball behavior including initial spawn at the center of the play area, random initial direction selection toward one side, movement physics using Rigidbody2D velocity, collision response angles when bouncing off paddles and boundaries, and progressive speed increases upon each paddle hit. This script manages the ball's core gameplay loop: spawning, traveling, bouncing, and accelerating. It provides methods for resetting the ball to center after a point is scored, setting initial velocity with randomized vertical component, and incrementing speed after each paddle collision. The script maintains the current speed multiplier and base speed values, and communicates with the GameManager for respawn timing after scoring events."
+      },
+      {
+        "name": "BallCollisionHandler",
+        "role": "Handles collision detection and response for the ball when it contacts paddles and boundaries. This script detects OnCollisionEnter2D events and determines the type of object hit (paddle or boundary) to apply appropriate physics responses. For paddle collisions, it calculates the bounce angle based on the hit position relative to the paddle center, applies the new velocity direction, and triggers the speed increase in BallController. For boundary collisions, it ensures proper vertical reflection. The script also communicates with the AudioManager to play appropriate sound effects for each collision type (paddle hit sound vs boundary bounce sound)."
+      }
+    ]
+  },
+  "children": []
+}

@@ -1,0 +1,85 @@
+{
+  "object": {
+    "name": "PauseMenu",
+    "components": [
+      "Canvas",
+      "CanvasScaler",
+      "GraphicRaycaster"
+    ],
+    "scripts": [
+      {
+        "name": "PauseMenuController",
+        "role": "Manages the pause menu UI behavior and user interactions. This script controls the visibility of the pause menu overlay by enabling/disabling the Canvas or its child elements based on game state. It handles button click events for Resume (calls GameManager.ResumeGame() to unpause and return to Playing state), Restart (calls GameManager.RestartGame() to reset scores and ball position for a new match), and Quit (calls GameManager.QuitToMenu() to return to the StartScreen). The script listens for game state changes from GameManager to show/hide itself appropriately (visible only during Paused state, hidden during Start/Playing/GameOver states). It provides public methods Show() and Hide() that GameManager can call during state transitions. The script ensures the pause menu appears centered on screen as an overlay above the gameplay elements when the player presses the pause key."
+      }
+    ]
+  },
+  "children": [
+    {
+      "hierarchy_name": "PauseMenu/Background",
+      "components": [
+        "Image",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/PausedText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/ResumeButton",
+      "components": [
+        "Image",
+        "Button",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/ResumeButton/ButtonText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/RestartButton",
+      "components": [
+        "Image",
+        "Button",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/RestartButton/ButtonText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/QuitButton",
+      "components": [
+        "Image",
+        "Button",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/QuitButton/ButtonText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    }
+  ]
+}

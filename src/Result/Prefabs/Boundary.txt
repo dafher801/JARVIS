@@ -1,0 +1,16 @@
+{
+  "prefab": {
+    "name": "Boundary",
+    "components": [
+      "SpriteRenderer",
+      "BoxCollider2D"
+    ],
+    "scripts": [
+      {
+        "name": "BoundaryReflection",
+        "role": "Handles the collision detection and reflection behavior when the ball contacts the boundary. This script detects collisions with the ball object and ensures proper bounce behavior by reflecting the ball's vertical velocity component. It also triggers the boundary bounce sound effect through communication with the AudioManager to provide audio feedback matching the classic Pong experience."
+      }
+    ]
+  },
+  "children": []
+}

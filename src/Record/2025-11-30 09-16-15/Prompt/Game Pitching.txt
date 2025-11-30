@@ -1,0 +1,47 @@
+You should write the explanation as if you were pitching this game. Use the provided reference data as much as possible, but for any missing content, use your discretion to fill it in appropriately.
+{
+  "title": <<<Write the game's name.>>>,
+  "logline": <<<Summarize this game in one or two sentences, capturing its core essence and what makes it unique.>>>,
+  "genre": {
+    "primary": <<<Write the primary genre (e.g., Action, RPG, Puzzle, Strategy, etc.).>>>,
+    "style": [ ... ] <<<Write one or more style descriptors that define how the game feels to play (e.g., Arcade, Simulation, Casual, Hardcore, Tactical, Twitch, Narrative, Sandbox, Competitive, Cozy, etc.).>>>
+  },
+  "theme": {
+    "setting": <<<Describe the world setting (e.g., Medieval Fantasy, Sci-Fi, Post-Apocalyptic, Modern Day, Abstract, etc.).>>>,
+    "tone": <<<Describe the overall tone and atmosphere (e.g., Dark, Comedic, Relaxing, Tense, Whimsical, etc.).>>>
+  },
+  "perspective": <<<Describe the camera perspective (e.g., First-Person, Third-Person, Top-Down, Side-Scrolling, Isometric, etc.).>>>,
+  "player_structure": {
+    "mode": <<<Describe the player mode (e.g., Singleplayer, Local Multiplayer, Online Multiplayer, Co-op, etc.).>>>,
+    "player_count": <<<Specify the number of players (e.g., 1, 2, 1-4, Massively Multiplayer, etc.).>>>
+  },
+  "references": [
+    {
+      "game_name": <<<Write the name of a reference game that shares similar mechanics or feel.>>>,
+      "game_logline": <<<Write a one-sentence description of what this reference game is.>>>,
+      "similarity": <<<Explain what aspect of your game is similar to this reference (e.g., combat system, progression structure, art style, etc.).>>>
+    }
+  ],
+  "target_audience": {
+    "demographic": <<<Describe the target demographic (e.g., age range, gender if relevant, region, etc.).>>>,
+    "player_type": <<<Describe the type of player (e.g., Casual, Hardcore, Competitive, Story-driven, etc.).>>>,
+    "context": <<<Describe when and how they would play (e.g., short commute sessions, long weekend sessions, streaming content, etc.).>>>
+  },
+  "player_character": {
+    "identity": <<<Describe who the player becomes in this game (e.g., a nameless warrior, a customizable hero, a specific named character, an abstract entity, etc.).>>>,
+    "core_fantasy": <<<Describe the fantasy the player fulfills by playing this character (e.g., becoming the strongest warrior, building an empire, surviving against all odds, etc.).>>>
+  },
+  "unique_selling_points": [
+    <<<Describe the first key feature that makes this game stand out from others.>>>,
+    <<<Describe another unique aspect or mechanic that differentiates this game.>>>
+  ],
+  "emotional_goals": {
+    "target_emotions": [
+      <<<List the primary emotions you want players to feel (e.g., Tension, Joy, Fear, Triumph, Curiosity, etc.).>>>
+    ],
+    "peak_moment": <<<Describe the most memorable emotional moment you want players to experience.>>>
+  },
+  "platform": [
+    <<<List the target platforms (e.g., PC, PlayStation, Xbox, Nintendo Switch, Mobile, Web, etc.).>>>
+  ]
+}

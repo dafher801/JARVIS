@@ -1,0 +1,15 @@
+{
+  "prefab": {
+    "name": "GoalZone",
+    "components": [
+      "BoxCollider2D"
+    ],
+    "scripts": [
+      {
+        "name": "GoalZoneDetector",
+        "role": "Detects when the ball enters the goal zone trigger area and communicates with the ScoreManager to award a point to the appropriate player. Contains a configurable parameter to identify which side this goal zone belongs to (left or right), determining whether the player or AI receives the point when the ball passes through. Uses OnTriggerEnter2D to detect ball entry and triggers ball respawn through the BallSpawner after a scoring event occurs."
+      }
+    ]
+  },
+  "children": []
+}

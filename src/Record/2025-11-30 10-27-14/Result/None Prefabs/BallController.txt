@@ -1,0 +1,17 @@
+{
+  "object": {
+    "name": "BallController",
+    "components": [],
+    "scripts": [
+      {
+        "name": "BallSpawner",
+        "role": "Manages the ball spawning and respawning logic as a centralized controller separate from the Ball object itself. This script holds a reference to the Ball object in the scene and controls when and how the ball is reset to the center position after scoring events. It handles the spawn delay timing between points, randomizes the initial direction (left or right) when launching the ball, and coordinates with the GameManager for match start and restart sequences. The script listens for scoring events from ScoreManager to trigger respawn sequences and provides public methods like SpawnBall() and ResetBall() that GameManager can call during game state transitions. It ensures the ball is properly positioned and launched only when the game is in the Playing state."
+      },
+      {
+        "name": "BallSpeedManager",
+        "role": "Tracks and manages the progressive speed increase system for the ball throughout a rally. This script maintains the base speed value, current speed multiplier, and maximum speed cap for the ball. It provides methods to increment the speed (called by the Ball's collision handler after paddle hits), reset speed to base value (called after scoring), and retrieve the current speed value. The script uses configurable parameters for speed increment amount per hit and maximum speed limit to allow easy balancing. It communicates with the Ball object to apply updated speed values while maintaining the ball's current direction. This separation allows centralized speed management and easy difficulty tuning without modifying the Ball object directly."
+      }
+    ]
+  },
+  "children": []
+}

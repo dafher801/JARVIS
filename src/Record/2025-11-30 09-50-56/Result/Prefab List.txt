@@ -1,0 +1,90 @@
+{
+  "prefabs": [
+    {
+      "name": "Paddle",
+      "targets": ["PlayerPaddle", "AIPaddle"],
+      "role": "A rectangular paddle entity that can move vertically along the playing field to intercept and return the ball. Contains visual representation (sprite/mesh), collider component for ball interaction, and base movement functionality.",
+      "reason": "Both PlayerPaddle and AIPaddle share identical visual appearance, collision behavior, and core movement mechanics. They differ only in their control source (player input vs AI logic). By creating a single Paddle prefab, we establish consistent physics, collision responses, and visual properties while allowing different controller scripts to be attached or configured per instance."
+    },
+    {
+      "name": "Wall",
+      "targets": ["TopWall", "BottomWall"],
+      "role": "A boundary wall that defines the vertical limits of the playing field. Contains a collider component that causes the ball to bounce upon contact, maintaining the ball within playable space.",
+      "reason": "TopWall and BottomWall are functionally identical—both serve as collision barriers that reflect the ball. They share the same collision properties, visual style (or invisibility), and physics behavior. Creating a single Wall prefab allows for consistent boundary setup and easy repositioning at top and bottom positions."
+    },
+    {
+      "name": "GoalZone",
+      "targets": ["PlayerGoalZone", "AIGoalZone"],
+      "role": "A trigger zone positioned behind each paddle that detects when the ball passes through, signaling a scoring event. Contains a trigger collider and references which side should receive the point when activated.",
+      "reason": "Both goal zones function identically as scoring triggers—they detect ball entry and notify the ScoreManager. The only difference is which player benefits from the trigger activation, which can be configured via a simple parameter. A single prefab ensures consistent trigger behavior and scoring detection."
+    },
+    {
+      "name": "ScoreDisplay",
+      "targets": ["PlayerScoreDisplay", "AIScoreDisplay"],
+      "role": "A UI element that displays the current score for one side of the game. Contains text component for score rendering, formatting logic, and update methods to reflect score changes from the ScoreManager.",
+      "reason": "Both score displays share identical functionality—rendering a numeric score value with the same visual style and update behavior. They differ only in position and which score they represent. A single prefab enables consistent typography, scaling, and animation while allowing flexible positioning and data binding."
+    }
+  ],
+  "none_prefabs": [
+    {
+      "name": "Ball",
+      "role": "The central game object that spawns at the center of the field, travels between paddles, bounces off walls and paddles, and increases speed with each paddle hit.",
+      "reason": "There is only one Ball instance in the game at any time. While it could technically be a prefab for spawning purposes, it represents a unique singleton object with specific spawn logic handled by BallManager. It doesn't generalize multiple similar objects."
+    },
+    {
+      "name": "CenterLine",
+      "role": "A purely visual divider in the middle of the playing field serving as a reference point with no collision or gameplay function.",
+      "reason": "This is a single decorative element unique to the scene. It has no variants, no need for runtime instantiation, and serves only as static visual decoration. Creating a prefab provides no reuse benefit."
+    },
+    {
+      "name": "GameManager",
+      "role": "The core manager responsible for overall game state control including starting, pausing, and ending the game.",
+      "reason": "This is a singleton logic controller that exists once per scene. It manages game flow and coordinates other systems. Logic managers are typically scene-bound and don't benefit from prefab instantiation patterns."
+    },
+    {
+      "name": "ScoreManager",
+      "role": "Tracks and manages the score for both the player and AI opponent, determines scoring events and checks win conditions.",
+      "reason": "A singleton logic component that manages game state data. It doesn't represent a visual or instantiable object, making it inappropriate as a prefab."
+    },
+    {
+      "name": "BallManager",
+      "role": "Controls ball spawning, initial direction, speed progression, and reset behavior after scoring.",
+      "reason": "A singleton manager that controls ball-related logic. As a pure logic controller with no visual representation and single instance requirement, it doesn't suit the prefab pattern."
+    },
+    {
+      "name": "AIController",
+      "role": "Handles the artificial intelligence logic for the opponent paddle, calculating movement decisions based on ball position.",
+      "reason": "This is a single logic component attached to the AI paddle instance. It's a controller script rather than a reusable prefab object."
+    },
+    {
+      "name": "InputManager",
+      "role": "Processes player input for paddle movement, translating keyboard or controller inputs into paddle control commands.",
+      "reason": "A singleton input handler that processes player commands. Input managers are system-level components, not instantiable prefab objects."
+    },
+    {
+      "name": "AudioManager",
+      "role": "Manages all sound effects in the game including ball bounce sounds, scoring sounds, and other audio feedback.",
+      "reason": "A singleton audio controller that handles all game sounds. Audio managers persist and are not instantiated multiple times, making prefab usage unnecessary."
+    },
+    {
+      "name": "GameCamera",
+      "role": "The main camera providing a fixed side-view perspective of the entire playing field.",
+      "reason": "There is only one camera in this simple game with a fixed perspective. Cameras are typically scene-specific and don't benefit from prefab abstraction in this context."
+    },
+    {
+      "name": "StartMenu",
+      "role": "The initial menu screen displayed when the game launches, containing the start game button and basic game information.",
+      "reason": "A unique UI screen with specific layout and functionality. Each menu serves a distinct purpose with different content and interactions, making generalization impractical."
+    },
+    {
+      "name": "PauseMenu",
+      "role": "The overlay menu that appears when the game is paused, providing options to resume, restart, or quit.",
+      "reason": "A unique UI overlay with specific pause-related functionality. Its unique button configuration and behavior don't align with other menus for generalization."
+    },
+    {
+      "name": "GameOverScreen",
+      "role": "The screen displayed when a game ends, showing final scores and options to play again or return to menu.",
+      "reason": "A unique UI screen with game-over specific content and layout. Its distinct purpose and elements don't warrant prefab abstraction with other UI screens."
+    }
+  ]
+}

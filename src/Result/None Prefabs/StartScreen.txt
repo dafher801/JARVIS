@@ -1,0 +1,59 @@
+{
+  "object": {
+    "name": "StartScreen",
+    "components": [
+      "Canvas",
+      "CanvasScaler",
+      "GraphicRaycaster"
+    ],
+    "scripts": [
+      {
+        "name": "StartScreenController",
+        "role": "Manages the start screen UI behavior and user interactions. This script controls the visibility of the start screen by enabling/disabling the Canvas or its child elements based on game state. It handles the Start Game button click event by communicating with GameManager to transition from the start screen to the Playing state via GameManager.StartGame(). The script may also handle any additional menu options such as quit button functionality. It listens for game state changes from GameManager to show/hide itself appropriately (visible during Start state, hidden during Playing/Paused/GameOver states). The script initializes on Awake() to ensure the start screen is properly displayed when the game first launches, and provides methods like Show() and Hide() for GameManager to control visibility during state transitions."
+      }
+    ]
+  },
+  "children": [
+    {
+      "hierarchy_name": "StartScreen/Background",
+      "components": [
+        "Image",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "StartScreen/TitleText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "StartScreen/StartButton",
+      "components": [
+        "Image",
+        "Button",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "StartScreen/StartButton/ButtonText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "StartScreen/InstructionsText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    }
+  ]
+}

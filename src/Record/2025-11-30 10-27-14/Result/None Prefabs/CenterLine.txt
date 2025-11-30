@@ -1,0 +1,114 @@
+{
+  "object": {
+    "name": "CenterLine",
+    "components": [],
+    "scripts": []
+  },
+  "children": [
+    {
+      "hierarchy_name": "CenterLine/DashSegment_01",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_02",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_03",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_04",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_05",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_06",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_07",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_08",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_09",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_10",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_11",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_12",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_13",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_14",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_15",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    }
+  ]
+}

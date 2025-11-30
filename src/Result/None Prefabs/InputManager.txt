@@ -1,0 +1,13 @@
+{
+  "object": {
+    "name": "InputManager",
+    "components": [],
+    "scripts": [
+      {
+        "name": "InputManager",
+        "role": "Handles all player input detection for the Pong game as a singleton service. This script detects vertical input for paddle movement using Unity's Input system, supporting both GetAxis('Vertical') for smooth analog input and discrete key detection for W/S and Up/Down arrow keys. It translates raw input into normalized movement commands (-1 for down, 0 for neutral, +1 for up) and maintains a reference to the player paddle's PaddleMovement component to communicate movement values each frame. The script processes input in Update() and calls the paddle's movement method with the current input direction. It also handles pause input by detecting the Escape key press and communicating with GameManager to toggle between Playing and Paused states via TogglePause() or similar method. The script respects game state by checking with GameManager whether the game is in the Playing state before processing gameplay input, preventing paddle movement during menus, pause screens, or game over states. It provides clean input abstraction so the paddle movement system doesn't need to know about specific input keys or axes, only receiving normalized direction values."
+      }
+    ]
+  },
+  "children": []
+}

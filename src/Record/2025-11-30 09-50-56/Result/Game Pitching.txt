@@ -1,0 +1,55 @@
+{
+  "title": "Pong Classic",
+  "logline": "A faithful recreation of the legendary arcade game that started it all—simple, addictive, and timeless table tennis action where reflexes are everything.",
+  "genre": {
+    "primary": "Sports",
+    "style": ["Arcade", "Casual", "Competitive", "Twitch"]
+  },
+  "theme": {
+    "setting": "Abstract",
+    "tone": "Minimalist"
+  },
+  "perspective": "Side-Scrolling",
+  "player_structure": {
+    "mode": "Singleplayer",
+    "player_count": "1"
+  },
+  "references": [
+    {
+      "game_name": "Pong (1972)",
+      "game_logline": "The original arcade table tennis simulation that pioneered the video game industry.",
+      "similarity": "Direct recreation of the original game mechanics, visual style, and core gameplay loop."
+    },
+    {
+      "game_name": "Breakout",
+      "game_logline": "A brick-breaking arcade game where players bounce a ball to destroy blocks.",
+      "similarity": "Shares the same paddle-and-ball physics foundation and simple yet addictive gameplay loop."
+    }
+  ],
+  "target_audience": {
+    "demographic": "All ages, gaming enthusiasts and retro game fans, global audience",
+    "player_type": "Casual",
+    "context": "Quick gaming sessions during breaks, nostalgic play, introduction to classic gaming for newcomers, experimental and educational purposes."
+  },
+  "player_character": {
+    "identity": "An abstract paddle entity representing the player's will and reflexes on the playing field.",
+    "core_fantasy": "Mastering precision timing and reflexes to achieve victory through pure skill in the purest form of competitive gaming."
+  },
+  "unique_selling_points": [
+    "Authentic recreation of gaming history—experience the title that launched an entire industry exactly as it was meant to be played.",
+    "Progressive difficulty through accelerating ball speed creates escalating tension and tests player reflexes with each successful rally."
+  ],
+  "emotional_goals": {
+    "target_emotions": [
+      "Tension",
+      "Focus",
+      "Triumph",
+      "Frustration",
+      "Satisfaction"
+    ],
+    "peak_moment": "The heart-pounding final rally when the ball is moving at maximum speed and a single missed hit determines victory or defeat."
+  },
+  "platform": [
+    "Web"
+  ]
+}

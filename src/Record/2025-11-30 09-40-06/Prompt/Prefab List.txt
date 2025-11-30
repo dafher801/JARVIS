@@ -1,0 +1,20 @@
+I'm developing a game in Unity. Among the listed objects, identify those that can be generalized and abstracted as prefabs. For each prefab, specify which objects it generalizes/abstracts as a single class and what role it serves. Do not include objects that don't need prefabs or are inappropriate to make into prefabs.
+{
+  "prefabs": [
+    {
+      "name": <<<Write the name of the prefab.>>>,
+      "targets": [ ... ] <<<Among the listed objects, write which objects are generalized or abstracted as multiple strings.>>>,
+      "role": <<<Write the role of the prefab in detail.>>>,
+      "reason": <<<Write the rationale for generalizing or abstracting it as a prefab.>>>
+    },
+    .....
+  ],
+  "none_prefabs": [
+    {
+      "name": <<<Write the name of the prefab.>>>,
+      "role": <<<Write the role of the prefab in detail.>>>,
+      "reason": <<<Write the rationale for generalizing or abstracting it as a none prefab.>>>
+    },
+    .....
+  ]
+}

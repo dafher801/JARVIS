@@ -1,0 +1,15 @@
+{
+  "object": {
+    "name": "AudioManager",
+    "components": [
+      "AudioSource"
+    ],
+    "scripts": [
+      {
+        "name": "AudioManager",
+        "role": "Singleton manager responsible for all audio playback in the Pong game. This script manages references to AudioClip assets for paddle hit sounds, boundary bounce sounds, and scoring event sounds. It provides public static methods (PlayPaddleHit(), PlayBoundaryBounce(), PlayScoreSound()) that other scripts throughout the game can call to trigger appropriate sound effects without needing direct references to this object. The script uses the attached AudioSource component for playing one-shot sound effects with PlayOneShot() to allow overlapping sounds during fast rallies. It implements the singleton pattern with a static Instance property for easy global access, initializing in Awake() and optionally using DontDestroyOnLoad() if scene persistence is needed. The script includes serialized AudioClip fields for each sound type that can be assigned in the Inspector, along with optional volume control parameters for each sound category. It may include a master volume setting and methods to adjust volume levels. The AudioManager respects game state appropriately, continuing to play sounds during pause for feedback or optionally muting based on design preference. This centralized audio system ensures consistent sound feedback matching the classic Pong arcade experience with satisfying audio cues for all gameplay interactions."
+      }
+    ]
+  },
+  "children": []
+}

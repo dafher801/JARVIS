@@ -1,0 +1,29 @@
+{
+  "object": {
+    "name": "GameManager",
+    "components": [],
+    "scripts": [
+      {
+        "name": "GameManager",
+        "role": "The central singleton manager responsible for controlling all game states (Start, Playing, Paused, GameOver) and coordinating transitions between them. This script initializes matches by resetting scores through ScoreManager and triggering ball spawn through BallController. It handles game flow including starting the game from the StartScreen, pausing/resuming gameplay, detecting win conditions by communicating with ScoreManager, and triggering the GameOverScreen when a match concludes. The script provides public methods for StartGame(), PauseGame(), ResumeGame(), RestartGame(), and QuitToMenu() that other systems and UI elements can call. It manages Time.timeScale for pausing functionality and broadcasts game state change events that other systems can subscribe to for appropriate responses."
+      },
+      {
+        "name": "ScoreManager",
+        "role": "Manages the complete scoring system for the Pong match. This script tracks the current score for both the player and AI opponent using integer variables. It provides public methods for incrementing either side's score (AddPlayerScore(), AddAIScore()) that are called by GoalZoneTrigger when the ball enters a goal zone. The script checks for win conditions after each score update by comparing scores against a configurable winning score threshold (default 11 points). It exposes events/callbacks (OnPlayerScoreChanged, OnAIScoreChanged, OnGameWon) that ScoreDisplayController and GameManager subscribe to for updating UI and triggering game over states. The script also provides a ResetScores() method for initializing new matches."
+      },
+      {
+        "name": "InputManager",
+        "role": "Handles all player input detection for the game. This script detects vertical input for paddle movement using Unity's Input system (GetAxis for smooth movement or GetKey for W/S and Up/Down arrow keys). It translates raw input into normalized movement commands (-1 for down, 0 for neutral, +1 for up) and communicates these values to the player paddle's PaddleMovement component. The script also handles pause input (Escape key) by communicating with GameManager to toggle pause state. It respects game state by only processing gameplay input when the game is in the Playing state, preventing input during menus or pause screens."
+      },
+      {
+        "name": "AIController",
+        "role": "Manages the AI opponent's autonomous paddle movement and decision-making logic. This script tracks the ball's position and calculates where the AI paddle should move to intercept it. It implements configurable difficulty through reaction speed, movement speed limits, and prediction accuracy parameters. The AI follows the ball's Y position with optional prediction of where the ball will arrive, adding slight imperfection to make the AI beatable. The script communicates movement commands to the AI paddle's PaddleMovement component. It includes logic to only actively track the ball when it's moving toward the AI's side, and returns to center position otherwise. The AI behavior respects game state and only operates during the Playing state."
+      },
+      {
+        "name": "AudioManager",
+        "role": "Singleton manager responsible for all audio playback in the game. This script holds references to AudioClips for paddle hit sounds, boundary bounce sounds, and scoring event sounds. It provides public methods (PlayPaddleHit(), PlayBoundaryBounce(), PlayScoreSound()) that other scripts call to trigger appropriate sound effects. The script manages an AudioSource component for playing sounds and ensures consistent audio feedback matching the classic Pong experience. It may include volume control functionality and respects pause state by optionally muting or continuing audio based on game state."
+      }
+    ]
+  },
+  "children": []
+}

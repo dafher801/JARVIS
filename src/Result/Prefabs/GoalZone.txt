@@ -1,0 +1,15 @@
+{
+  "prefab": {
+    "name": "GoalZone",
+    "components": [
+      "BoxCollider2D"
+    ],
+    "scripts": [
+      {
+        "name": "GoalZoneTrigger",
+        "role": "Handles the trigger detection when the ball passes through the goal zone. This script configures the BoxCollider2D as a trigger zone and detects when the ball enters the trigger area. Upon detection, it communicates with the ScoreManager to award a point to the appropriate side (the opposing player/AI scores when the ball enters this zone). The script includes a configurable property or tag identifier to specify which side this goal zone belongs to (Player or AI), determining which score should be incremented when triggered. It also triggers the scoring sound effect through the AudioManager and initiates the ball respawn sequence through communication with the GameManager or BallController."
+      }
+    ]
+  },
+  "children": []
+}

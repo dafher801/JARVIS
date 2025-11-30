@@ -1,0 +1,13 @@
+{
+  "object": {
+    "name": "AIController",
+    "components": [],
+    "scripts": [
+      {
+        "name": "AIController",
+        "role": "Manages the AI opponent's autonomous paddle movement and decision-making logic for the single-player Pong experience. This script tracks the ball's position by holding a reference to the Ball object and calculates where the AI paddle should move to intercept it. It implements configurable difficulty through parameters including reaction speed (how quickly the AI responds to ball position changes), movement speed limits (maximum velocity the AI paddle can move), prediction accuracy (how well the AI anticipates ball trajectory), and error margin (intentional imperfection to make the AI beatable). The AI follows the ball's Y position with optional prediction of where the ball will arrive based on ball velocity, adding slight randomized offset to prevent perfect play. The script communicates movement commands to the AI paddle's PaddleMovement component by calling its movement methods with calculated direction values. It includes logic to only actively track the ball when it's moving toward the AI's side (positive X velocity), and smoothly returns to center position when the ball is moving away. The AI behavior respects game state by checking with GameManager and only operates during the Playing state, remaining idle during pause, start screen, or game over states. The script runs its tracking logic in Update() or FixedUpdate() for consistent movement regardless of frame rate."
+      }
+    ]
+  },
+  "children": []
+}

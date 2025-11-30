@@ -1,0 +1,22 @@
+{
+  "prefab": {
+    "name": "ScoreDisplay",
+    "components": [],
+    "scripts": [
+      {
+        "name": "ScoreDisplayController",
+        "role": "Manages the score display UI element by subscribing to score change events from the ScoreManager. This script includes a configurable property to specify which side's score to display (Player or AI). When the corresponding score changes, it updates the displayed text value. The script communicates with the ScoreManager to retrieve initial score values on start and registers for score update callbacks to ensure the display always reflects the current score state."
+      }
+    ]
+  },
+  "children": [
+    {
+      "hierarchy_name": "ScoreDisplay/ScoreText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "title": "Pong Classic",
+  "rule": "Two paddles compete to score points by making the ball pass the opponent's side. The ball speeds up with each successful hit, increasing difficulty progressively. A point is awarded to the opposing side when a player fails to return the ball. In single-player mode, the player competes against an AI-controlled opponent. The game continues until a predetermined score limit is reached or indefinitely for practice.",
+  "objects": [
+    {
+      "name": "Ball",
+      "type": "World",
+      "description": "The spherical object that spawns at the center and travels between paddles, bouncing off walls and paddles while increasing speed with each hit."
+    },
+    {
+      "name": "PlayerPaddle",
+      "type": "World",
+      "description": "The player-controlled paddle positioned on one side of the screen that moves vertically to intercept and return the ball."
+    },
+    {
+      "name": "AIPaddle",
+      "type": "World",
+      "description": "The computer-controlled paddle on the opposite side that automatically tracks and attempts to return the ball to provide single-player opposition."
+    },
+    {
+      "name": "TopWall",
+      "type": "World",
+      "description": "An invisible collision boundary at the top of the play area that causes the ball to bounce back into the field."
+    },
+    {
+      "name": "BottomWall",
+      "type": "World",
+      "description": "An invisible collision boundary at the bottom of the play area that causes the ball to bounce back into the field."
+    },
+    {
+      "name": "LeftGoalZone",
+      "type": "World",
+      "description": "A trigger zone behind the left paddle that detects when the ball passes through, awarding a point to the right side."
+    },
+    {
+      "name": "RightGoalZone",
+      "type": "World",
+      "description": "A trigger zone behind the right paddle that detects when the ball passes through, awarding a point to the left side."
+    },
+    {
+      "name": "CenterLine",
+      "type": "World",
+      "description": "A visual dashed line in the middle of the play area that divides the court, serving as a purely aesthetic element."
+    },
+    {
+      "name": "GameManager",
+      "type": "Logic",
+      "description": "The central controller that manages overall game states including start, pause, reset, and game over conditions."
+    },
+    {
+      "name": "ScoreManager",
+      "type": "Logic",
+      "description": "Tracks and updates the score for both the player and AI opponent, determining when scoring events occur."
+    },
+    {
+      "name": "BallSpeedManager",
+      "type": "Logic",
+      "description": "Controls the ball's velocity progression, calculating and applying speed increases after each successful paddle hit."
+    },
+    {
+      "name": "AIController",
+      "type": "Logic",
+      "description": "Handles the artificial intelligence logic for the opponent paddle, determining movement patterns and reaction timing."
+    },
+    {
+      "name": "BallSpawner",
+      "type": "Logic",
+      "description": "Responsible for spawning the ball at the center of the screen and setting its initial direction after each point or game start."
+    },
+    {
+      "name": "InputManager",
+      "type": "Logic",
+      "description": "Processes player input from keyboard, controller, or touch and translates it into paddle movement commands."
+    },
+    {
+      "name": "MainCamera",
+      "type": "Interface",
+      "description": "The orthographic camera that provides a fixed side-view of the entire play area, ensuring both paddles and ball are always visible."
+    },
+    {
+      "name": "ScoreDisplay",
+      "type": "Interface",
+      "description": "UI text elements that show the current score for both the player and opponent, typically displayed at the top of the screen."
+    },
+    {
+      "name": "StartScreen",
+      "type": "Interface",
+      "description": "The initial menu interface displayed when the game launches, containing the start button and any initial instructions."
+    },
+    {
+      "name": "PauseMenu",
+      "type": "Interface",
+      "description": "An overlay interface that appears when the game is paused, offering options to resume, restart, or quit."
+    },
+    {
+      "name": "GameOverScreen",
+      "type": "Interface",
+      "description": "The interface displayed when a game concludes, showing final scores and options to play again or return to the main menu."
+    }
+  ]
+}

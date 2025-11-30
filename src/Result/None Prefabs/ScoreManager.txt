@@ -1,0 +1,13 @@
+{
+  "object": {
+    "name": "ScoreManager",
+    "components": [],
+    "scripts": [
+      {
+        "name": "ScoreManager",
+        "role": "Manages the complete scoring system for the Pong match. This script tracks the current score for both the player and AI opponent using integer variables. It provides public methods for incrementing either side's score (AddPlayerScore(), AddAIScore()) that are called by GoalZoneTrigger when the ball enters a goal zone. The script checks for win conditions after each score update by comparing scores against a configurable winning score threshold (default 11 points). It exposes events/callbacks (OnPlayerScoreChanged, OnAIScoreChanged, OnGameWon) that ScoreDisplayController and GameManager subscribe to for updating UI and triggering game over states. The script also provides a ResetScores() method for initializing new matches and GetPlayerScore()/GetAIScore() methods for retrieving current scores."
+      }
+    ]
+  },
+  "children": []
+}

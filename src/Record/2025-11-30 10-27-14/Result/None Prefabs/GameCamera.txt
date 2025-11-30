@@ -1,0 +1,16 @@
+{
+  "object": {
+    "name": "GameCamera",
+    "components": [
+      "Camera",
+      "AudioListener"
+    ],
+    "scripts": [
+      {
+        "name": "CameraSetup",
+        "role": "Configures the camera for the classic Pong gameplay view. This script sets up the camera as an orthographic camera with a fixed position and size that ensures the entire play area (both paddles, ball, boundaries, and goal zones) is always visible within the viewport. It configures the orthographic size based on the play area dimensions, sets the camera position to center on the play field with appropriate Z depth for 2D rendering, and ensures the camera background color matches the classic Pong aesthetic (typically black). The script runs its configuration in Awake() or Start() to establish the correct view before gameplay begins, and maintains the camera in a fixed position throughout the game since Pong requires no camera movement or scrolling."
+      }
+    ]
+  },
+  "children": []
+}

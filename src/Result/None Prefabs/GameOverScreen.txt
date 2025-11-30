@@ -1,0 +1,84 @@
+{
+  "object": {
+    "name": "GameOverScreen",
+    "components": [
+      "Canvas",
+      "CanvasScaler",
+      "GraphicRaycaster"
+    ],
+    "scripts": [
+      {
+        "name": "GameOverScreenController",
+        "role": "Manages the game over screen UI behavior and user interactions. This script controls the visibility of the game over screen by enabling/disabling the Canvas or its child elements based on game state. It listens for game state changes from GameManager and the OnGameWon event from ScoreManager to show itself when a match concludes. The script updates the final score display and winner announcement text based on the match results retrieved from ScoreManager (GetPlayerScore() and GetAIScore()). It handles button click events for Play Again (calls GameManager.RestartGame() to reset scores and start a new match) and Quit to Menu (calls GameManager.QuitToMenu() to return to the StartScreen). The script provides public methods Show() and Hide() that GameManager can call during state transitions, and a SetWinner() or UpdateResults() method to display the appropriate victory/defeat message and final scores. It ensures the game over screen is hidden during Start/Playing/Paused states and only visible during the GameOver state."
+      }
+    ]
+  },
+  "children": [
+    {
+      "hierarchy_name": "GameOverScreen/Background",
+      "components": [
+        "Image",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/GameOverText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/WinnerText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/FinalScoreText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/PlayAgainButton",
+      "components": [
+        "Image",
+        "Button",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/PlayAgainButton/ButtonText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/QuitButton",
+      "components": [
+        "Image",
+        "Button",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/QuitButton/ButtonText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    }
+  ]
+}

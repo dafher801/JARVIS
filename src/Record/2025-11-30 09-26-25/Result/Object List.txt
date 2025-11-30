@@ -1,0 +1,96 @@
+{
+  "title": "Pong Classic",
+  "rule": "Two paddles compete to hit a ball back and forth across the playing field. When a player fails to return the ball with their paddle, the opponent scores one point. The ball increases in speed with each successful hit, progressively increasing difficulty. The game continues until a predetermined score is reached or the session ends. In single-player mode, the player competes against an AI-controlled opponent.",
+  "objects": [
+    {
+      "name": "Ball",
+      "type": "World",
+      "description": "The primary game object that spawns at the center of the field and travels between the two sides, bouncing off paddles and boundaries while accelerating with each paddle hit."
+    },
+    {
+      "name": "PlayerPaddle",
+      "type": "World",
+      "description": "The player-controlled paddle positioned on one side of the field that can move vertically (up and down) to intercept and return the ball."
+    },
+    {
+      "name": "AIPaddle",
+      "type": "World",
+      "description": "The AI-controlled opponent paddle positioned on the opposite side of the field that autonomously moves to intercept and return the ball."
+    },
+    {
+      "name": "TopBoundary",
+      "type": "World",
+      "description": "An invisible collision wall at the top edge of the playing field that causes the ball to bounce and reflect downward."
+    },
+    {
+      "name": "BottomBoundary",
+      "type": "World",
+      "description": "An invisible collision wall at the bottom edge of the playing field that causes the ball to bounce and reflect upward."
+    },
+    {
+      "name": "PlayerGoalZone",
+      "type": "World",
+      "description": "A trigger zone behind the player's paddle that detects when the ball passes through, resulting in a point scored for the opponent."
+    },
+    {
+      "name": "AIGoalZone",
+      "type": "World",
+      "description": "A trigger zone behind the AI paddle that detects when the ball passes through, resulting in a point scored for the player."
+    },
+    {
+      "name": "CenterLine",
+      "type": "World",
+      "description": "A visual divider in the middle of the playing field that serves as an aesthetic reference marking the center of the court."
+    },
+    {
+      "name": "GameManager",
+      "type": "Logic",
+      "description": "The central controller that manages overall game flow including game states (start, playing, paused, game over), score tracking, and win/lose conditions."
+    },
+    {
+      "name": "BallController",
+      "type": "Logic",
+      "description": "Manages ball behavior including initial spawn direction, velocity calculations, speed acceleration upon paddle hits, and bounce angle determination."
+    },
+    {
+      "name": "AIController",
+      "type": "Logic",
+      "description": "Controls the AI paddle's decision-making and movement logic, determining how the opponent tracks and intercepts the ball."
+    },
+    {
+      "name": "ScoreManager",
+      "type": "Logic",
+      "description": "Tracks and manages the score for both the player and AI opponent, handling point increments and determining match victory conditions."
+    },
+    {
+      "name": "InputManager",
+      "type": "Logic",
+      "description": "Processes player input from keyboard, mouse, or touch controls and translates them into paddle movement commands."
+    },
+    {
+      "name": "ScoreDisplay",
+      "type": "Interface",
+      "description": "UI element that displays the current score for both the player and AI opponent, typically shown at the top of the screen."
+    },
+    {
+      "name": "MainMenuUI",
+      "type": "Interface",
+      "description": "The title screen interface that allows players to start a new game, access settings, or exit the application."
+    },
+    {
+      "name": "PauseMenuUI",
+      "type": "Interface",
+      "description": "An overlay menu that appears when the game is paused, providing options to resume, restart, or return to the main menu."
+    },
+    {
+      "name": "GameOverUI",
+      "type": "Interface",
+      "description": "The end-game screen that displays the final result (win or lose), final scores, and options to play again or return to the main menu."
+    },
+    {
+      "name": "GameCamera",
+      "type": "Interface",
+      "description": "The main orthographic camera that provides a fixed top-down or side view of the entire playing field, ensuring both paddles and the ball are always visible."
+    }
+  ]
+}

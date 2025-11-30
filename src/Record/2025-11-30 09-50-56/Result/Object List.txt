@@ -1,0 +1,106 @@
+{
+  "title": "Pong Classic",
+  "rule": "Two paddles compete to hit a ball back and forth across the playing field. A player scores a point when the opponent fails to return the ball. The ball increases in speed with each successful hit, progressively increasing difficulty. The game continues until a predetermined score is reached or indefinitely in endless mode. In single-player mode, the player competes against an AI-controlled opponent.",
+  "objects": [
+    {
+      "name": "Ball",
+      "type": "World",
+      "description": "The central game object that spawns at the center of the field and travels between paddles. It bounces off walls and paddles, increasing speed with each paddle hit."
+    },
+    {
+      "name": "PlayerPaddle",
+      "type": "World",
+      "description": "The paddle controlled by the player, positioned on one side of the field. It can move vertically up and down to intercept and return the ball."
+    },
+    {
+      "name": "AIPaddle",
+      "type": "World",
+      "description": "The paddle controlled by artificial intelligence, positioned on the opposite side from the player. It automatically moves to track and return the ball."
+    },
+    {
+      "name": "TopWall",
+      "type": "World",
+      "description": "The upper boundary of the playing field that the ball bounces off when contacted. Acts as a collision barrier."
+    },
+    {
+      "name": "BottomWall",
+      "type": "World",
+      "description": "The lower boundary of the playing field that the ball bounces off when contacted. Acts as a collision barrier."
+    },
+    {
+      "name": "PlayerGoalZone",
+      "type": "World",
+      "description": "The trigger zone behind the player's paddle. When the ball enters this zone, the opponent scores a point."
+    },
+    {
+      "name": "AIGoalZone",
+      "type": "World",
+      "description": "The trigger zone behind the AI paddle. When the ball enters this zone, the player scores a point."
+    },
+    {
+      "name": "CenterLine",
+      "type": "World",
+      "description": "A visual divider in the middle of the playing field, serving as a reference point. Purely decorative with no collision."
+    },
+    {
+      "name": "GameManager",
+      "type": "Logic",
+      "description": "The core manager responsible for overall game state control including starting, pausing, and ending the game. Coordinates all other managers and handles game flow."
+    },
+    {
+      "name": "ScoreManager",
+      "type": "Logic",
+      "description": "Tracks and manages the score for both the player and AI opponent. Determines when scoring events occur and checks for win conditions."
+    },
+    {
+      "name": "BallManager",
+      "type": "Logic",
+      "description": "Controls ball spawning, initial direction, speed progression, and reset behavior after scoring. Manages the ball's speed increase logic upon paddle hits."
+    },
+    {
+      "name": "AIController",
+      "type": "Logic",
+      "description": "Handles the artificial intelligence logic for the opponent paddle, calculating movement decisions based on ball position and trajectory."
+    },
+    {
+      "name": "InputManager",
+      "type": "Logic",
+      "description": "Processes player input for paddle movement, translating keyboard or controller inputs into paddle control commands."
+    },
+    {
+      "name": "AudioManager",
+      "type": "Logic",
+      "description": "Manages all sound effects in the game including ball bounce sounds, scoring sounds, and other audio feedback."
+    },
+    {
+      "name": "GameCamera",
+      "type": "Interface",
+      "description": "The main camera providing a fixed side-view perspective of the entire playing field. Ensures both paddles and the ball are always visible."
+    },
+    {
+      "name": "PlayerScoreDisplay",
+      "type": "Interface",
+      "description": "UI element displaying the player's current score, positioned on the player's side of the screen."
+    },
+    {
+      "name": "AIScoreDisplay",
+      "type": "Interface",
+      "description": "UI element displaying the AI opponent's current score, positioned on the opponent's side of the screen."
+    },
+    {
+      "name": "StartMenu",
+      "type": "Interface",
+      "description": "The initial menu screen displayed when the game launches, containing the start game button and basic game information."
+    },
+    {
+      "name": "PauseMenu",
+      "type": "Interface",
+      "description": "The overlay menu that appears when the game is paused, providing options to resume, restart, or quit the game."
+    },
+    {
+      "name": "GameOverScreen",
+      "type": "Interface",
+      "description": "The screen displayed when a game ends, showing final scores and providing options to play again or return to the main menu."
+    }
+  ]
+}

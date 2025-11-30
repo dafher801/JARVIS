@@ -3,6 +3,7 @@ import re
 import json
 import anthropic
 import shutil
+import atexit
 from datetime import datetime
 
 
@@ -19,6 +20,8 @@ class GameDeveloper:
     def __init__(self):
         atexit.register(self.backup)
 
+        self.clear_folder(RESULT_PATH)
+
         with open(REFERENCE_PATH, 'w', encoding="utf-8") as file:
             file.write("")
 
@@ -31,8 +34,17 @@ class GameDeveloper:
         self.system_prompt = system_prompt_content.replace("{CLIENT_REQUEST}", client_request)
 
 
+    def clear_folder(self, path: str):
+        for filename in os.listdir(path):
+            file_path = os.path.join(path, filename)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+            elif os.path.isdir(file_path):
+                self.clear_folder(file_path)
+
+
     def backup(self):
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        timestamp = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
         target_path = RECORD_PATH + timestamp + "/"
         
         shutil.copytree(PROMPT_PATH, target_path + "Prompt")
@@ -44,29 +56,40 @@ class GameDeveloper:
     def __send_message(self, prompt: str) -> str:
         client = anthropic.Anthropic(api_key=os.environ.get("GAME_DEVELOPMENT_CLAUDE_API"),)
 
-        with client.messages.stream(
-            model="claude-opus-4-5-20251101",
-            max_tokens=64000,
-            temperature=1,
-            system = self.system_prompt,
-            messages=[
-                {"role": "user", "content": prompt}
-            ]
-        ) as stream:
-            full_text = ""
-            for text in stream.text_stream:
-                full_text += text
+        max_retries = 5
+        for attempt in range(max_retries):
+            try:
+                with client.messages.stream(
+                    model="claude-opus-4-5-20251101",
+                    max_tokens=64000,
+                    temperature=1,
+                    system=self.system_prompt,
+                    messages=[
+                        {"role": "user", "content": prompt}
+                    ]
+                ) as stream:
+                    full_text = ""
+                    for text in stream.text_stream:
+                        full_text += text
 
-        full_text = full_text.strip()
-        full_text = re.sub(r'^```(?:json)?\s*', '', full_text)
-        full_text = re.sub(r'\s*```$', '', full_text)
-        full_text = full_text.strip()
+                full_text = full_text.strip()
+                full_text = re.sub(r'^```(?:json)?\s*', '', full_text)
+                full_text = re.sub(r'\s*```$', '', full_text)
+                full_text = full_text.strip()
 
-        with open(REFERENCE_PATH, 'a', encoding="utf-8") as file:
-            file.write(full_text + "\n\n")
+                with open(REFERENCE_PATH, 'a', encoding="utf-8") as file:
+                    file.write(full_text + "\n\n")
 
-        print(full_text)
-        return full_text
+                print(full_text)
+                return full_text
+
+            except (httpx.RemoteProtocolError, Exception) as e:
+                print(f"\n연결 오류 (시도 {attempt + 1}/{max_retries}): {e}")
+                if attempt < max_retries - 1:
+                    print("5초 후 재시도...")
+                    time.sleep(5)
+                else:
+                    raise Exception("최대 재시도 횟수 초과")
 
 
     def __generate_prompt(self, source_file_name: str) -> str:
@@ -112,7 +135,7 @@ class GameDeveloper:
             file.write(result)
 
 
-    def generate_prefab_list(self):
+    def generate_prefabs(self):
         prompt = self.__generate_prompt("Prefab List.txt")
         result = self.__send_message(prompt)
 
@@ -122,24 +145,43 @@ class GameDeveloper:
 
     def generate_prefab_constructure(self):
         with open(RESULT_PATH + "Prefab List.txt", 'r', encoding="utf-8") as file:
-            prefab_list_text = file.read()
+            prefabs_text = file.read()
 
-        prefab_list = json.loads(prefab_list_text)
-        length = len(prefab_list["prefabs"])
+        prefabs = json.loads(prefabs_text)
+        length = len(prefabs["prefabs"])
 
         for i in range(0, length):
-            prefab_name = prefab_list["prefabs"][0]["name"]
+            prefab_name = prefabs["prefabs"][i]["name"]
             prompt = self.__generate_prompt("Prefab Constructure.txt")
             prompt = prompt.replace("{PREFAB_NAME}", prefab_name)
 
             result = self.__send_message(prompt)
 
-            with open(RESULT_PATH + prefab_name + ".txt", 'w', encoding="utf-8") as file:
+            with open(RESULT_PATH + "Prefabs/" + prefab_name + ".txt", 'w', encoding="utf-8") as file:
+                file.write(result)
+
+    
+    def generate_none_prefab_constructure(self):
+        with open(RESULT_PATH + "Prefab List.txt", 'r', encoding="utf-8") as file:
+            none_prefabs_text = file.read()
+
+        none_prefabs = json.loads(none_prefabs_text)
+        length = len(none_prefabs["none_prefabs"])
+
+        for i in range(0, length):
+            none_prefab_name = none_prefabs["none_prefabs"][i]["name"]
+            prompt = self.__generate_prompt("None Prefab Constructure.txt")
+            prompt = prompt.replace("{NONE_PREFAB_NAME}", none_prefab_name)
+
+            result = self.__send_message(prompt)
+
+            with open(RESULT_PATH + "None Prefabs/" + none_prefab_name + ".txt", 'w', encoding="utf-8") as file:
                 file.write(result)
 
 
 game_developer = GameDeveloper()
 game_developer.generate_game_pitching()
 game_developer.generate_object_list()
-game_developer.generate_prefab_list()
+game_developer.generate_prefabs()
 game_developer.generate_prefab_constructure()
+game_developer.generate_none_prefab_constructure()

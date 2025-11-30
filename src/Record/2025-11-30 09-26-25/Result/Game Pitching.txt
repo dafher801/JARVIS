@@ -1,0 +1,56 @@
+{
+  "title": "Pong Classic",
+  "logline": "A faithful recreation of the legendary arcade classic that started it all—experience the pure, addictive gameplay of Pong, where lightning-fast reflexes and strategic paddle control determine victory in this timeless test of skill.",
+  "genre": {
+    "primary": "Sports",
+    "style": ["Arcade", "Casual", "Competitive", "Twitch"]
+  },
+  "theme": {
+    "setting": "Abstract",
+    "tone": "Minimalist"
+  },
+  "perspective": "Side-Scrolling",
+  "player_structure": {
+    "mode": "Singleplayer",
+    "player_count": "1"
+  },
+  "references": [
+    {
+      "game_name": "Pong (1972)",
+      "game_logline": "The pioneering table tennis arcade game that launched the video game industry, featuring two paddles and a bouncing ball.",
+      "similarity": "Direct recreation of the original gameplay mechanics, visual style, and core loop—this is a faithful homage to the 1972 Atari classic."
+    },
+    {
+      "game_name": "Breakout",
+      "game_logline": "An arcade game where players use a paddle to bounce a ball and break bricks.",
+      "similarity": "Shares the same paddle-and-ball control mechanics and the satisfying feel of precise ball deflection."
+    }
+  ],
+  "target_audience": {
+    "demographic": "All ages, universal appeal, particularly nostalgic players aged 30+ and newcomers curious about gaming history",
+    "player_type": "Casual",
+    "context": "Quick pick-up-and-play sessions, coffee breaks, testing reflexes, or introducing classic gaming to new generations"
+  },
+  "player_character": {
+    "identity": "An abstract paddle entity—the player becomes the paddle itself, a simple yet powerful instrument of precision and timing",
+    "core_fantasy": "Mastering the art of perfect timing and prediction, outmaneuvering an opponent through pure skill and reflexes"
+  },
+  "unique_selling_points": [
+    "A precise, authentic recreation of the original Pong experience that honors gaming history while providing a polished, accessible entry point for modern players",
+    "Progressive difficulty through ball speed acceleration creates an escalating challenge that tests the limits of player reflexes with each successful rally"
+  ],
+  "emotional_goals": {
+    "target_emotions": [
+      "Tension",
+      "Satisfaction",
+      "Focus",
+      "Triumph"
+    ],
+    "peak_moment": "The heart-pounding final seconds of a close match where the ball is moving at maximum speed, and a single perfectly-timed paddle strike secures victory"
+  },
+  "platform": [
+    "PC",
+    "Web",
+    "Mobile"
+  ]
+}

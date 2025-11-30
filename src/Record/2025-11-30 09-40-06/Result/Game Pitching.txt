@@ -1,0 +1,56 @@
+{
+  "title": "Pong Classic",
+  "logline": "A faithful recreation of the timeless arcade classic where two paddles battle for supremacy in a fast-paced game of digital table tennis, with escalating ball speeds that test your reflexes to the limit.",
+  "genre": {
+    "primary": "Sports",
+    "style": ["Arcade", "Casual", "Competitive", "Twitch"]
+  },
+  "theme": {
+    "setting": "Abstract",
+    "tone": "Minimalist"
+  },
+  "perspective": "Side-Scrolling",
+  "player_structure": {
+    "mode": "Singleplayer",
+    "player_count": "1"
+  },
+  "references": [
+    {
+      "game_name": "Pong (1972)",
+      "game_logline": "The original arcade game that pioneered the video game industry, featuring simple paddle-and-ball gameplay.",
+      "similarity": "Direct recreation of the core gameplay mechanics, visual style, and scoring system"
+    },
+    {
+      "game_name": "Breakout",
+      "game_logline": "An arcade game where players use a paddle to break bricks with a bouncing ball.",
+      "similarity": "Similar paddle control mechanics and ball physics with escalating difficulty"
+    }
+  ],
+  "target_audience": {
+    "demographic": "All ages, universal appeal, global audience with particular nostalgia factor for players 30+",
+    "player_type": "Casual",
+    "context": "Quick pick-up-and-play sessions, coffee break gaming, nostalgic replay sessions, or as a warm-up before longer gaming sessions"
+  },
+  "player_character": {
+    "identity": "An abstract paddle entity representing the player's direct input and reflexes",
+    "core_fantasy": "Becoming the ultimate table tennis champion through pure skill and lightning-fast reflexes"
+  },
+  "unique_selling_points": [
+    "A pixel-perfect recreation of the game that started the entire video game industry, preserving gaming history for new generations",
+    "Progressive difficulty through increasing ball speed creates an accessible yet challenging experience that rewards practice and precision"
+  ],
+  "emotional_goals": {
+    "target_emotions": [
+      "Tension",
+      "Focus",
+      "Triumph",
+      "Nostalgia"
+    ],
+    "peak_moment": "The heart-pounding moment when the ball reaches maximum speed and you successfully return a seemingly impossible shot to score the winning point"
+  },
+  "platform": [
+    "Web",
+    "PC",
+    "Mobile"
+  ]
+}

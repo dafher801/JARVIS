@@ -1,13 +1,13 @@
 {
   "title": "Pong Classic",
-  "logline": "A faithful recreation of the timeless arcade classic where two paddles battle for supremacy in a minimalist arena of pure reflexes and escalating intensity.",
+  "logline": "A faithful recreation of the legendary 1972 arcade game that started it all—simple, addictive, and timeless table tennis action where split-second reflexes determine victory.",
   "genre": {
     "primary": "Sports",
     "style": ["Arcade", "Casual", "Competitive", "Twitch"]
   },
   "theme": {
     "setting": "Abstract",
-    "tone": "Tense"
+    "tone": "Minimalist"
   },
   "perspective": "Side-Scrolling",
   "player_structure": {
@@ -17,142 +17,147 @@
   "references": [
     {
       "game_name": "Pong (1972)",
-      "game_logline": "The pioneering table tennis arcade game that launched the video game industry with its simple yet addictive two-paddle gameplay.",
-      "similarity": "Complete recreation of the original game mechanics, visual style, and core gameplay loop."
+      "game_logline": "The original arcade table tennis simulation that launched the video game industry and became a cultural phenomenon.",
+      "similarity": "Complete mechanical recreation including paddle movement, ball physics, scoring system, and progressive ball speed increase."
     },
     {
       "game_name": "Breakout",
-      "game_logline": "A brick-breaking arcade game where players use a paddle to bounce a ball and destroy blocks.",
-      "similarity": "Shares the paddle-and-ball mechanics with progressively challenging gameplay through ball speed increases."
+      "game_logline": "An arcade game where players bounce a ball off a paddle to destroy rows of bricks.",
+      "similarity": "Shared DNA in paddle-based ball control mechanics and the satisfying feel of precise reflexive gameplay."
     }
   ],
   "target_audience": {
-    "demographic": "All ages, global audience, particularly appealing to retro gaming enthusiasts and those seeking simple, accessible gameplay",
+    "demographic": "All ages, universal appeal across all regions, particularly nostalgic players aged 30+ and newcomers curious about gaming history",
     "player_type": "Casual",
-    "context": "Quick pick-up-and-play sessions during short breaks, perfect for testing reflexes or introducing newcomers to classic gaming experiences."
+    "context": "Quick pick-up-and-play sessions during breaks, nostalgia-driven play, or as an introduction to classic gaming for younger audiences"
   },
   "player_character": {
-    "identity": "An abstract paddle entity, representing the player's direct control and reflexes in a minimalist competitive arena.",
-    "core_fantasy": "Achieving perfect timing and reflexes to outmaneuver an opponent in a pure test of skill where every millisecond counts."
+    "identity": "An abstract paddle entity—the player themselves become the paddle, a pure extension of their reflexes and will to compete",
+    "core_fantasy": "Mastering the fundamentals of competition through pure skill—no power-ups, no upgrades, just you versus the game in its purest form"
   },
   "unique_selling_points": [
-    "A faithful recreation of the original Pong experience, preserving the authentic arcade feel that defined the birth of video games.",
-    "Progressive difficulty through ball speed acceleration with each successful hit, creating an escalating tension curve that rewards skilled play."
+    "An authentic recreation of gaming's most influential title, preserving the exact feel and mechanics that captivated millions in 1972",
+    "Pure, distraction-free gameplay that strips away modern complexity to deliver raw, satisfying competition where skill is the only variable"
   ],
   "emotional_goals": {
     "target_emotions": [
       "Tension",
       "Focus",
-      "Triumph",
-      "Frustration",
-      "Satisfaction"
+      "Satisfaction",
+      "Nostalgia",
+      "Competitive Drive"
     ],
-    "peak_moment": "The heart-pounding rally when the ball reaches maximum speed, demanding split-second reactions, culminating in either a triumphant defensive save or a decisive point."
+    "peak_moment": "That heart-pounding rally when the ball is moving at maximum speed, bouncing back and forth in a blur, and you make the impossible save that turns the tide of the match"
   },
   "platform": [
-    "Web",
-    "PC"
+    "PC",
+    "Web"
   ]
 }
 
 {
   "title": "Pong Classic",
-  "rule": "Two paddles compete to hit a ball back and forth across the playing field. A point is scored when the opponent fails to return the ball. The ball accelerates with each successful hit, increasing difficulty progressively. The game continues until a predetermined score is reached or indefinitely in endless mode. In single-player mode, the player competes against an AI-controlled opponent.",
+  "rule": "Two paddles compete to hit a ball back and forth across the play area. A point is scored when the opposing side fails to return the ball. The ball increases in speed with each successful hit, creating escalating difficulty. The game continues until a predetermined score is reached or indefinitely in practice mode. In single-player mode, the player competes against an AI-controlled opponent.",
   "objects": [
     {
       "name": "Ball",
       "type": "World",
-      "description": "The central gameplay element that spawns at the center and travels between paddles, increasing in speed with each successful hit."
+      "description": "The central gameplay element that spawns at the center of the play area and travels between the two sides, bouncing off paddles and boundaries while increasing in speed with each paddle hit."
     },
     {
       "name": "PlayerPaddle",
       "type": "World",
-      "description": "The player-controlled paddle positioned on one side of the field that moves vertically to intercept and return the ball."
+      "description": "The player-controlled paddle positioned on one side of the play area that can move vertically (up and down) to intercept and return the ball."
     },
     {
       "name": "AIPaddle",
       "type": "World",
-      "description": "The AI-controlled opponent paddle on the opposite side that autonomously tracks and attempts to return the ball."
+      "description": "The AI-controlled opponent paddle positioned on the opposite side that autonomously moves to intercept the ball and provide single-player competition."
     },
     {
-      "name": "TopWall",
+      "name": "TopBoundary",
       "type": "World",
-      "description": "A collision boundary at the top of the playing field that causes the ball to bounce back when contacted."
+      "description": "A collision boundary at the top edge of the play area that reflects the ball downward when contacted."
     },
     {
-      "name": "BottomWall",
+      "name": "BottomBoundary",
       "type": "World",
-      "description": "A collision boundary at the bottom of the playing field that causes the ball to bounce back when contacted."
+      "description": "A collision boundary at the bottom edge of the play area that reflects the ball upward when contacted."
     },
     {
-      "name": "LeftGoalZone",
+      "name": "PlayerGoalZone",
       "type": "World",
-      "description": "A trigger zone behind the player paddle that detects when the ball passes through, resulting in a point for the opponent."
+      "description": "A trigger zone behind the player's paddle that detects when the ball passes through, signaling a point scored for the opponent."
     },
     {
-      "name": "RightGoalZone",
+      "name": "AIGoalZone",
       "type": "World",
-      "description": "A trigger zone behind the AI paddle that detects when the ball passes through, resulting in a point for the player."
+      "description": "A trigger zone behind the AI paddle that detects when the ball passes through, signaling a point scored for the player."
     },
     {
       "name": "CenterLine",
       "type": "World",
-      "description": "A visual divider in the middle of the playing field that serves as a decorative element separating the two halves."
+      "description": "A visual divider in the middle of the play area that serves as a reference point and aesthetic element matching the classic Pong appearance."
     },
     {
       "name": "GameManager",
       "type": "Logic",
-      "description": "The central controller that manages overall game flow including game start, pause, restart, and transitioning between game states."
+      "description": "The central manager responsible for controlling game states (start, playing, paused, game over), initializing matches, and coordinating all other systems."
     },
     {
       "name": "ScoreManager",
       "type": "Logic",
-      "description": "Tracks and updates the score for both the player and AI opponent, determining when scoring events occur."
+      "description": "Manages the scoring system by tracking points for both the player and AI opponent, determining when score events occur, and checking for win conditions."
     },
     {
-      "name": "BallSpawner",
+      "name": "BallController",
       "type": "Logic",
-      "description": "Handles the spawning and initial direction of the ball at the center of the field at game start and after each point."
-    },
-    {
-      "name": "BallPhysicsController",
-      "type": "Logic",
-      "description": "Manages ball movement, collision responses, angle calculations upon paddle contact, and speed acceleration with each hit."
+      "description": "Controls ball behavior including initial spawn direction, movement physics, collision response angles, and progressive speed increases upon each paddle hit."
     },
     {
       "name": "AIController",
       "type": "Logic",
-      "description": "Controls the AI paddle behavior, determining its movement patterns and reaction timing to track and intercept the ball."
+      "description": "Manages the AI opponent's decision-making and movement patterns, determining how the AI paddle tracks and intercepts the ball with appropriate difficulty."
     },
     {
       "name": "InputManager",
       "type": "Logic",
-      "description": "Processes player input for paddle movement, translating keyboard or controller commands into paddle motion."
+      "description": "Handles player input detection for paddle movement (up/down controls) and translates input into paddle movement commands."
     },
     {
-      "name": "ScoreDisplay",
-      "type": "Interface",
-      "description": "UI element that displays the current score for both the player and opponent on screen."
-    },
-    {
-      "name": "MainMenuUI",
-      "type": "Interface",
-      "description": "The initial menu interface allowing players to start a new game or access other options before gameplay begins."
-    },
-    {
-      "name": "PauseMenuUI",
-      "type": "Interface",
-      "description": "An overlay interface that appears when the game is paused, offering options to resume, restart, or quit."
-    },
-    {
-      "name": "GameOverUI",
-      "type": "Interface",
-      "description": "The end-game screen displaying final scores and providing options to replay or return to the main menu."
+      "name": "AudioManager",
+      "type": "Logic",
+      "description": "Manages sound effects including ball bounce sounds, paddle hit sounds, and scoring event audio to provide feedback matching the classic Pong experience."
     },
     {
       "name": "GameCamera",
       "type": "Interface",
-      "description": "A fixed orthographic camera that provides a top-down or side view of the entire playing field, ensuring all gameplay elements are visible."
+      "description": "A fixed orthographic camera that provides the side-view perspective of the entire play area, ensuring both paddles and the ball are always visible."
+    },
+    {
+      "name": "PlayerScoreDisplay",
+      "type": "Interface",
+      "description": "UI element displaying the player's current score, positioned prominently on the player's side of the screen in classic Pong numeral style."
+    },
+    {
+      "name": "AIScoreDisplay",
+      "type": "Interface",
+      "description": "UI element displaying the AI opponent's current score, positioned on the opponent's side of the screen matching the player score visual style."
+    },
+    {
+      "name": "StartScreen",
+      "type": "Interface",
+      "description": "The initial menu interface displayed when the game launches, allowing players to start a new game or access other options."
+    },
+    {
+      "name": "PauseMenu",
+      "type": "Interface",
+      "description": "An overlay interface that appears when the game is paused, providing options to resume, restart, or quit the current match."
+    },
+    {
+      "name": "GameOverScreen",
+      "type": "Interface",
+      "description": "Interface displayed when a match concludes showing the final score and providing options to play again or return to the start screen."
     }
   ]
 }
@@ -162,88 +167,88 @@
     {
       "name": "Paddle",
       "targets": ["PlayerPaddle", "AIPaddle"],
-      "role": "A rectangular paddle entity that moves vertically along its designated side of the playing field to intercept and return the ball. Contains visual representation (sprite/mesh), collider component for ball collision detection, and base movement functionality.",
-      "reason": "Both PlayerPaddle and AIPaddle share identical visual appearance, collision behavior, and movement mechanics (vertical movement constrained to field bounds). The only difference is the control source (player input vs AI logic), which can be handled by attaching different controller scripts to the same base prefab. This promotes code reuse and ensures visual consistency between player and opponent paddles."
+      "role": "A vertical rectangular paddle object that can move up and down along its designated side of the play area. It serves as the primary gameplay tool for hitting and returning the ball, featuring collision detection for ball interaction and constrained vertical movement within the play area boundaries.",
+      "reason": "Both PlayerPaddle and AIPaddle share identical visual appearance, collision behavior, movement constraints, and physical properties. The only difference is their control source (player input vs AI logic), which can be handled through different controller components attached to the same base prefab. This reduces redundancy and ensures consistent paddle behavior across both entities."
     },
     {
-      "name": "Wall",
-      "targets": ["TopWall", "BottomWall"],
-      "role": "A collision boundary object positioned at the horizontal edges of the playing field that reflects the ball when contacted. Contains a collider component configured to bounce the ball at appropriate angles.",
-      "reason": "TopWall and BottomWall are functionally identical objects with the same collision behavior and visual representation, differing only in their position (top vs bottom of the field). Creating a single Wall prefab allows for consistent collision handling and easy placement at both boundaries without duplicating assets or code."
+      "name": "Boundary",
+      "targets": ["TopBoundary", "BottomBoundary"],
+      "role": "A horizontal collision barrier positioned at the edges of the play area that reflects the ball when contacted. It provides the physical boundaries that keep the ball within the playable space and creates the bouncing behavior essential to Pong gameplay.",
+      "reason": "TopBoundary and BottomBoundary are functionally identical objects with the same collision behavior, visual representation, and purpose. They only differ in their position (top vs bottom of play area). Creating a single Boundary prefab that can be instantiated and positioned at either location eliminates code duplication and ensures consistent ball reflection physics."
     },
     {
       "name": "GoalZone",
-      "targets": ["LeftGoalZone", "RightGoalZone"],
-      "role": "An invisible trigger zone positioned behind each paddle that detects when the ball passes through, triggering a scoring event. Contains a trigger collider and references to identify which side scored.",
-      "reason": "Both goal zones serve the same purpose of detecting when the ball exits the playing field on their respective sides. They share identical detection logic and only differ in position and which player receives the point. A single prefab with a configurable 'scoring side' parameter enables consistent scoring detection while avoiding code duplication."
+      "targets": ["PlayerGoalZone", "AIGoalZone"],
+      "role": "A trigger zone positioned behind each paddle that detects when the ball passes through, signaling a scoring event. It communicates with the ScoreManager to award points to the appropriate side when the ball enters the zone.",
+      "reason": "Both goal zones have identical functionality as trigger detectors for scoring events. They share the same collision detection logic, trigger behavior, and communication pattern with the scoring system. The only difference is which side scores when triggered, which can be configured through a simple property or tag. A single prefab promotes maintainability and consistent behavior."
     },
     {
-      "name": "Ball",
-      "targets": ["Ball"],
-      "role": "The central gameplay object that spawns at the center of the field, travels between paddles, bounces off walls and paddles, and accelerates with each successful hit. Contains visual representation, physics/collision components, and movement properties.",
-      "reason": "While there is only one ball in the game, making it a prefab is essential for the spawning system. The BallSpawner needs to instantiate the ball at game start and after each point is scored. A prefab allows for clean instantiation, destruction, and re-spawning of the ball with consistent initial properties each time."
+      "name": "ScoreDisplay",
+      "targets": ["PlayerScoreDisplay", "AIScoreDisplay"],
+      "role": "A UI element that displays the current score for one side of the match using classic Pong-style numerals. It updates dynamically when scoring events occur and maintains visual consistency with the minimalist arcade aesthetic.",
+      "reason": "Both score displays share identical visual styling, update logic, and rendering behavior. They differ only in which score value they display and their screen position. Using a single prefab with configurable properties for which score to track ensures visual consistency and simplifies score display management and styling updates."
     }
   ],
   "none_prefabs": [
     {
+      "name": "Ball",
+      "role": "The central gameplay element that spawns at the center, travels between sides, bounces off paddles and boundaries, and increases speed with each paddle hit.",
+      "reason": "There is only one ball in the game at any time. While it could technically be a prefab for respawning purposes, it's a unique singleton object with specialized physics and speed progression behavior that doesn't need generalization with other objects."
+    },
+    {
       "name": "CenterLine",
-      "role": "A static visual divider element in the middle of the playing field that serves purely as a decorative element to separate the two halves of the arena.",
-      "reason": "CenterLine is a unique, static visual element that exists only once in the scene and never needs to be instantiated dynamically. It has no gameplay logic, no collision behavior, and no need for reuse. It should be placed directly in the scene as a simple sprite or line renderer."
+      "role": "A purely visual divider in the middle of the play area that serves as an aesthetic element matching the classic Pong appearance.",
+      "reason": "This is a unique decorative element with no duplicate instances and no shared behavior with other objects. It's a static visual element that can be placed directly in the scene without needing prefab instantiation."
     },
     {
       "name": "GameManager",
-      "role": "The central singleton controller that manages overall game flow including game start, pause, restart, and state transitions.",
-      "reason": "GameManager is a logic-only singleton that exists once per game session. It should be attached to an empty GameObject in the scene or implemented as a persistent singleton pattern. There is no need for multiple instances or dynamic spawning."
+      "role": "The central manager controlling game states, initializing matches, and coordinating all other systems.",
+      "reason": "This is a singleton logic component that exists once per game. It has no visual representation and is not instantiated multiple times, making it inappropriate as a prefab."
     },
     {
       "name": "ScoreManager",
-      "role": "Tracks and updates scores for both player and AI opponent, handling scoring events and win conditions.",
-      "reason": "ScoreManager is a single instance logic controller that manages game-wide score state. It does not need instantiation or reuse and should exist as a scene object or singleton service."
+      "role": "Manages the scoring system by tracking points for both sides, determining score events, and checking win conditions.",
+      "reason": "This is a singleton manager with unique responsibilities that exists once in the game. It has no physical representation and doesn't need to be instantiated from a prefab."
     },
     {
-      "name": "BallSpawner",
-      "role": "Handles spawning the ball at the center of the field at game start and after each point, determining initial ball direction.",
-      "reason": "BallSpawner is a single logic component that uses the Ball prefab to instantiate balls. It itself does not need to be a prefab as only one spawner exists in the game."
-    },
-    {
-      "name": "BallPhysicsController",
-      "role": "Manages ball movement physics, collision responses, angle calculations, and speed acceleration mechanics.",
-      "reason": "This is a logic script component that would be attached to the Ball prefab rather than being a separate prefab itself. It handles the ball's behavior but is not an independent instantiable object."
+      "name": "BallController",
+      "role": "Controls ball behavior including spawn direction, movement physics, collision response angles, and progressive speed increases.",
+      "reason": "This is a logic component attached to the single ball object. It's not instantiated independently and doesn't share behavior patterns with other objects."
     },
     {
       "name": "AIController",
-      "role": "Controls AI paddle behavior including movement patterns, reaction timing, and ball tracking logic.",
-      "reason": "AIController is a logic script component that would be attached to the AIPaddle instance. It is not a standalone object requiring prefab instantiation."
+      "role": "Manages the AI opponent's decision-making and movement patterns for tracking and intercepting the ball.",
+      "reason": "This is a unique controller component for the AI paddle. It exists as a single instance and its logic is specific to AI behavior, not shared with other objects."
     },
     {
       "name": "InputManager",
-      "role": "Processes player input for paddle movement, translating keyboard or controller commands into paddle motion.",
-      "reason": "InputManager is a singleton service or scene-level component that handles input processing. It does not require dynamic instantiation or multiple instances."
+      "role": "Handles player input detection for paddle movement and translates input into movement commands.",
+      "reason": "This is a singleton input handling system that exists once in the game. It's a service-level component without visual representation that doesn't require prefab instantiation."
     },
     {
-      "name": "ScoreDisplay",
-      "role": "UI element displaying current scores for both player and opponent on screen.",
-      "reason": "ScoreDisplay is a unique UI element that exists as part of the Canvas hierarchy. UI elements in Pong are simple and static, not requiring prefab-based instantiation."
-    },
-    {
-      "name": "MainMenuUI",
-      "role": "Initial menu interface for starting new games and accessing options before gameplay.",
-      "reason": "MainMenuUI is a unique scene-based UI panel. It is either part of a separate menu scene or a single Canvas panel, not requiring prefab instantiation."
-    },
-    {
-      "name": "PauseMenuUI",
-      "role": "Overlay interface appearing when game is paused with resume, restart, and quit options.",
-      "reason": "PauseMenuUI is a single UI panel that is activated/deactivated rather than instantiated. It exists once in the game scene's Canvas."
-    },
-    {
-      "name": "GameOverUI",
-      "role": "End-game screen showing final scores with replay and main menu options.",
-      "reason": "GameOverUI is a unique UI panel shown once at game end. It is toggled visible rather than instantiated dynamically."
+      "name": "AudioManager",
+      "role": "Manages sound effects including ball bounce sounds, paddle hit sounds, and scoring event audio.",
+      "reason": "This is a singleton manager responsible for audio playback. It exists as a single service instance and has no need for multiple instantiation."
     },
     {
       "name": "GameCamera",
-      "role": "Fixed orthographic camera providing a complete view of the playing field ensuring all gameplay elements are visible.",
-      "reason": "GameCamera is a single, static camera object in the scene. There is only one camera needed and it never changes or gets instantiated dynamically."
+      "role": "A fixed orthographic camera providing the side-view perspective of the entire play area.",
+      "reason": "There is only one camera in this game with a fixed position and settings. It's a unique scene element that doesn't benefit from prefab abstraction."
+    },
+    {
+      "name": "StartScreen",
+      "role": "The initial menu interface displayed when the game launches for starting new games.",
+      "reason": "This is a unique UI screen with specific layout and functionality. Each menu screen has distinct content and behavior, making generalization inappropriate."
+    },
+    {
+      "name": "PauseMenu",
+      "role": "An overlay interface for pausing the game with options to resume, restart, or quit.",
+      "reason": "This is a unique UI overlay with specific pause-related functionality and options that differ from other menu screens."
+    },
+    {
+      "name": "GameOverScreen",
+      "role": "Interface displayed at match conclusion showing final score and replay options.",
+      "reason": "This is a unique UI screen with specific end-game content and functionality distinct from other menu interfaces."
     }
   ]
 }
@@ -259,11 +264,11 @@
     "scripts": [
       {
         "name": "PaddleMovement",
-        "role": "Handles the vertical movement of the paddle, constraining it within the playing field boundaries. Provides a common movement interface that can be called by either player input or AI control systems. Includes movement speed configuration and boundary limit parameters to prevent the paddle from moving outside the playable area."
+        "role": "Handles the vertical movement of the paddle within the play area boundaries. This script provides a public method for moving the paddle up or down based on input (either from player input or AI commands). It enforces movement constraints to prevent the paddle from moving outside the designated play area by clamping the paddle's vertical position to the top and bottom boundary limits."
       },
       {
-        "name": "PaddleBallInteraction",
-        "role": "Manages the collision response when the ball contacts the paddle. Calculates the reflection angle based on where the ball hits the paddle surface (center hits return straight, edge hits return at sharper angles). This creates more dynamic and skillful gameplay as players can aim their returns based on paddle positioning."
+        "name": "PaddleBounce",
+        "role": "Manages the collision response when the ball hits the paddle. This script detects collisions with the ball and calculates the appropriate bounce angle based on where the ball hits the paddle surface. It also triggers the ball speed increase mechanism and plays the paddle hit sound effect through communication with the AudioManager."
       }
     ]
   },
@@ -272,20 +277,15 @@
 
 {
   "prefab": {
-    "name": "Paddle",
+    "name": "Boundary",
     "components": [
       "SpriteRenderer",
-      "BoxCollider2D",
-      "Rigidbody2D"
+      "BoxCollider2D"
     ],
     "scripts": [
       {
-        "name": "PaddleMovement",
-        "role": "Handles the vertical movement of the paddle, constraining it within the playing field boundaries. Provides a common movement interface that can be called by either player input or AI control systems. Includes movement speed configuration and boundary limit parameters to prevent the paddle from moving outside the playable area."
-      },
-      {
-        "name": "PaddleBallInteraction",
-        "role": "Manages the collision response when the ball contacts the paddle. Calculates the reflection angle based on where the ball hits the paddle surface (center hits return straight, edge hits return at sharper angles). This creates more dynamic and skillful gameplay as players can aim their returns based on paddle positioning."
+        "name": "BoundaryReflection",
+        "role": "Handles the collision detection and reflection behavior when the ball contacts the boundary. This script detects collisions with the ball object and ensures proper bounce behavior by reflecting the ball's vertical velocity component. It also triggers the boundary bounce sound effect through communication with the AudioManager to provide audio feedback matching the classic Pong experience."
       }
     ]
   },
@@ -294,20 +294,14 @@
 
 {
   "prefab": {
-    "name": "Paddle",
+    "name": "GoalZone",
     "components": [
-      "SpriteRenderer",
-      "BoxCollider2D",
-      "Rigidbody2D"
+      "BoxCollider2D"
     ],
     "scripts": [
       {
-        "name": "PaddleMovement",
-        "role": "Handles the vertical movement of the paddle, constraining it within the playing field boundaries. Provides a common movement interface that can be called by either player input or AI control systems. Includes movement speed configuration and boundary limit parameters to prevent the paddle from moving outside the playable area."
-      },
-      {
-        "name": "PaddleBallInteraction",
-        "role": "Manages the collision response when the ball contacts the paddle. Calculates the reflection angle based on where the ball hits the paddle surface (center hits return straight, edge hits return at sharper angles). This creates more dynamic and skillful gameplay as players can aim their returns based on paddle positioning."
+        "name": "GoalZoneTrigger",
+        "role": "Handles the trigger detection when the ball passes through the goal zone. This script configures the BoxCollider2D as a trigger zone and detects when the ball enters the trigger area. Upon detection, it communicates with the ScoreManager to award a point to the appropriate side (the opposing player/AI scores when the ball enters this zone). The script includes a configurable property or tag identifier to specify which side this goal zone belongs to (Player or AI), determining which score should be incremented when triggered. It also triggers the scoring sound effect through the AudioManager and initiates the ball respawn sequence through communication with the GameManager or BallController."
       }
     ]
   },
@@ -316,23 +310,515 @@
 
 {
   "prefab": {
-    "name": "Paddle",
+    "name": "ScoreDisplay",
+    "components": [],
+    "scripts": [
+      {
+        "name": "ScoreDisplayController",
+        "role": "Manages the score display UI element by subscribing to score change events from the ScoreManager. This script includes a configurable property to specify which side's score to display (Player or AI). When the corresponding score changes, it updates the displayed text value. The script communicates with the ScoreManager to retrieve initial score values on start and registers for score update callbacks to ensure the display always reflects the current score state."
+      }
+    ]
+  },
+  "children": [
+    {
+      "hierarchy_name": "ScoreDisplay/ScoreText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    }
+  ]
+}
+
+{
+  "object": {
+    "name": "Ball",
     "components": [
       "SpriteRenderer",
-      "BoxCollider2D",
+      "CircleCollider2D",
       "Rigidbody2D"
     ],
     "scripts": [
       {
-        "name": "PaddleMovement",
-        "role": "Handles the vertical movement of the paddle, constraining it within the playing field boundaries. Provides a common movement interface that can be called by either player input or AI control systems. Includes movement speed configuration and boundary limit parameters to prevent the paddle from moving outside the playable area."
+        "name": "BallController",
+        "role": "Controls all ball behavior including initial spawn at the center of the play area, random initial direction selection toward one side, movement physics using Rigidbody2D velocity, collision response angles when bouncing off paddles and boundaries, and progressive speed increases upon each paddle hit. This script manages the ball's core gameplay loop: spawning, traveling, bouncing, and accelerating. It provides methods for resetting the ball to center after a point is scored, setting initial velocity with randomized vertical component, and incrementing speed after each paddle collision. The script maintains the current speed multiplier and base speed values, and communicates with the GameManager for respawn timing after scoring events."
       },
       {
-        "name": "PaddleBallInteraction",
-        "role": "Manages the collision response when the ball contacts the paddle. Calculates the reflection angle based on where the ball hits the paddle surface (center hits return straight, edge hits return at sharper angles). This creates more dynamic and skillful gameplay as players can aim their returns based on paddle positioning."
+        "name": "BallCollisionHandler",
+        "role": "Handles collision detection and response for the ball when it contacts paddles and boundaries. This script detects OnCollisionEnter2D events and determines the type of object hit (paddle or boundary) to apply appropriate physics responses. For paddle collisions, it calculates the bounce angle based on the hit position relative to the paddle center, applies the new velocity direction, and triggers the speed increase in BallController. For boundary collisions, it ensures proper vertical reflection. The script also communicates with the AudioManager to play appropriate sound effects for each collision type (paddle hit sound vs boundary bounce sound)."
       }
     ]
   },
   "children": []
+}
+
+{
+  "object": {
+    "name": "CenterLine",
+    "components": [],
+    "scripts": []
+  },
+  "children": [
+    {
+      "hierarchy_name": "CenterLine/DashSegment_01",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_02",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_03",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_04",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_05",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_06",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_07",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_08",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_09",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_10",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_11",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_12",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_13",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_14",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "CenterLine/DashSegment_15",
+      "components": [
+        "SpriteRenderer"
+      ],
+      "scripts": []
+    }
+  ]
+}
+
+{
+  "object": {
+    "name": "GameManager",
+    "components": [],
+    "scripts": [
+      {
+        "name": "GameManager",
+        "role": "The central singleton manager responsible for controlling all game states (Start, Playing, Paused, GameOver) and coordinating transitions between them. This script initializes matches by resetting scores through ScoreManager and triggering ball spawn through BallController. It handles game flow including starting the game from the StartScreen, pausing/resuming gameplay, detecting win conditions by communicating with ScoreManager, and triggering the GameOverScreen when a match concludes. The script provides public methods for StartGame(), PauseGame(), ResumeGame(), RestartGame(), and QuitToMenu() that other systems and UI elements can call. It manages Time.timeScale for pausing functionality and broadcasts game state change events that other systems can subscribe to for appropriate responses."
+      },
+      {
+        "name": "ScoreManager",
+        "role": "Manages the complete scoring system for the Pong match. This script tracks the current score for both the player and AI opponent using integer variables. It provides public methods for incrementing either side's score (AddPlayerScore(), AddAIScore()) that are called by GoalZoneTrigger when the ball enters a goal zone. The script checks for win conditions after each score update by comparing scores against a configurable winning score threshold (default 11 points). It exposes events/callbacks (OnPlayerScoreChanged, OnAIScoreChanged, OnGameWon) that ScoreDisplayController and GameManager subscribe to for updating UI and triggering game over states. The script also provides a ResetScores() method for initializing new matches."
+      },
+      {
+        "name": "InputManager",
+        "role": "Handles all player input detection for the game. This script detects vertical input for paddle movement using Unity's Input system (GetAxis for smooth movement or GetKey for W/S and Up/Down arrow keys). It translates raw input into normalized movement commands (-1 for down, 0 for neutral, +1 for up) and communicates these values to the player paddle's PaddleMovement component. The script also handles pause input (Escape key) by communicating with GameManager to toggle pause state. It respects game state by only processing gameplay input when the game is in the Playing state, preventing input during menus or pause screens."
+      },
+      {
+        "name": "AIController",
+        "role": "Manages the AI opponent's autonomous paddle movement and decision-making logic. This script tracks the ball's position and calculates where the AI paddle should move to intercept it. It implements configurable difficulty through reaction speed, movement speed limits, and prediction accuracy parameters. The AI follows the ball's Y position with optional prediction of where the ball will arrive, adding slight imperfection to make the AI beatable. The script communicates movement commands to the AI paddle's PaddleMovement component. It includes logic to only actively track the ball when it's moving toward the AI's side, and returns to center position otherwise. The AI behavior respects game state and only operates during the Playing state."
+      },
+      {
+        "name": "AudioManager",
+        "role": "Singleton manager responsible for all audio playback in the game. This script holds references to AudioClips for paddle hit sounds, boundary bounce sounds, and scoring event sounds. It provides public methods (PlayPaddleHit(), PlayBoundaryBounce(), PlayScoreSound()) that other scripts call to trigger appropriate sound effects. The script manages an AudioSource component for playing sounds and ensures consistent audio feedback matching the classic Pong experience. It may include volume control functionality and respects pause state by optionally muting or continuing audio based on game state."
+      }
+    ]
+  },
+  "children": []
+}
+
+{
+  "object": {
+    "name": "ScoreManager",
+    "components": [],
+    "scripts": [
+      {
+        "name": "ScoreManager",
+        "role": "Manages the complete scoring system for the Pong match. This script tracks the current score for both the player and AI opponent using integer variables. It provides public methods for incrementing either side's score (AddPlayerScore(), AddAIScore()) that are called by GoalZoneTrigger when the ball enters a goal zone. The script checks for win conditions after each score update by comparing scores against a configurable winning score threshold (default 11 points). It exposes events/callbacks (OnPlayerScoreChanged, OnAIScoreChanged, OnGameWon) that ScoreDisplayController and GameManager subscribe to for updating UI and triggering game over states. The script also provides a ResetScores() method for initializing new matches and GetPlayerScore()/GetAIScore() methods for retrieving current scores."
+      }
+    ]
+  },
+  "children": []
+}
+
+{
+  "object": {
+    "name": "BallController",
+    "components": [],
+    "scripts": [
+      {
+        "name": "BallSpawner",
+        "role": "Manages the ball spawning and respawning logic as a centralized controller separate from the Ball object itself. This script holds a reference to the Ball object in the scene and controls when and how the ball is reset to the center position after scoring events. It handles the spawn delay timing between points, randomizes the initial direction (left or right) when launching the ball, and coordinates with the GameManager for match start and restart sequences. The script listens for scoring events from ScoreManager to trigger respawn sequences and provides public methods like SpawnBall() and ResetBall() that GameManager can call during game state transitions. It ensures the ball is properly positioned and launched only when the game is in the Playing state."
+      },
+      {
+        "name": "BallSpeedManager",
+        "role": "Tracks and manages the progressive speed increase system for the ball throughout a rally. This script maintains the base speed value, current speed multiplier, and maximum speed cap for the ball. It provides methods to increment the speed (called by the Ball's collision handler after paddle hits), reset speed to base value (called after scoring), and retrieve the current speed value. The script uses configurable parameters for speed increment amount per hit and maximum speed limit to allow easy balancing. It communicates with the Ball object to apply updated speed values while maintaining the ball's current direction. This separation allows centralized speed management and easy difficulty tuning without modifying the Ball object directly."
+      }
+    ]
+  },
+  "children": []
+}
+
+{
+  "object": {
+    "name": "AIController",
+    "components": [],
+    "scripts": [
+      {
+        "name": "AIController",
+        "role": "Manages the AI opponent's autonomous paddle movement and decision-making logic for the single-player Pong experience. This script tracks the ball's position by holding a reference to the Ball object and calculates where the AI paddle should move to intercept it. It implements configurable difficulty through parameters including reaction speed (how quickly the AI responds to ball position changes), movement speed limits (maximum velocity the AI paddle can move), prediction accuracy (how well the AI anticipates ball trajectory), and error margin (intentional imperfection to make the AI beatable). The AI follows the ball's Y position with optional prediction of where the ball will arrive based on ball velocity, adding slight randomized offset to prevent perfect play. The script communicates movement commands to the AI paddle's PaddleMovement component by calling its movement methods with calculated direction values. It includes logic to only actively track the ball when it's moving toward the AI's side (positive X velocity), and smoothly returns to center position when the ball is moving away. The AI behavior respects game state by checking with GameManager and only operates during the Playing state, remaining idle during pause, start screen, or game over states. The script runs its tracking logic in Update() or FixedUpdate() for consistent movement regardless of frame rate."
+      }
+    ]
+  },
+  "children": []
+}
+
+{
+  "object": {
+    "name": "InputManager",
+    "components": [],
+    "scripts": [
+      {
+        "name": "InputManager",
+        "role": "Handles all player input detection for the Pong game as a singleton service. This script detects vertical input for paddle movement using Unity's Input system, supporting both GetAxis('Vertical') for smooth analog input and discrete key detection for W/S and Up/Down arrow keys. It translates raw input into normalized movement commands (-1 for down, 0 for neutral, +1 for up) and maintains a reference to the player paddle's PaddleMovement component to communicate movement values each frame. The script processes input in Update() and calls the paddle's movement method with the current input direction. It also handles pause input by detecting the Escape key press and communicating with GameManager to toggle between Playing and Paused states via TogglePause() or similar method. The script respects game state by checking with GameManager whether the game is in the Playing state before processing gameplay input, preventing paddle movement during menus, pause screens, or game over states. It provides clean input abstraction so the paddle movement system doesn't need to know about specific input keys or axes, only receiving normalized direction values."
+      }
+    ]
+  },
+  "children": []
+}
+
+{
+  "object": {
+    "name": "AudioManager",
+    "components": [
+      "AudioSource"
+    ],
+    "scripts": [
+      {
+        "name": "AudioManager",
+        "role": "Singleton manager responsible for all audio playback in the Pong game. This script manages references to AudioClip assets for paddle hit sounds, boundary bounce sounds, and scoring event sounds. It provides public static methods (PlayPaddleHit(), PlayBoundaryBounce(), PlayScoreSound()) that other scripts throughout the game can call to trigger appropriate sound effects without needing direct references to this object. The script uses the attached AudioSource component for playing one-shot sound effects with PlayOneShot() to allow overlapping sounds during fast rallies. It implements the singleton pattern with a static Instance property for easy global access, initializing in Awake() and optionally using DontDestroyOnLoad() if scene persistence is needed. The script includes serialized AudioClip fields for each sound type that can be assigned in the Inspector, along with optional volume control parameters for each sound category. It may include a master volume setting and methods to adjust volume levels. The AudioManager respects game state appropriately, continuing to play sounds during pause for feedback or optionally muting based on design preference. This centralized audio system ensures consistent sound feedback matching the classic Pong arcade experience with satisfying audio cues for all gameplay interactions."
+      }
+    ]
+  },
+  "children": []
+}
+
+{
+  "object": {
+    "name": "GameCamera",
+    "components": [
+      "Camera",
+      "AudioListener"
+    ],
+    "scripts": [
+      {
+        "name": "CameraSetup",
+        "role": "Configures the camera for the classic Pong gameplay view. This script sets up the camera as an orthographic camera with a fixed position and size that ensures the entire play area (both paddles, ball, boundaries, and goal zones) is always visible within the viewport. It configures the orthographic size based on the play area dimensions, sets the camera position to center on the play field with appropriate Z depth for 2D rendering, and ensures the camera background color matches the classic Pong aesthetic (typically black). The script runs its configuration in Awake() or Start() to establish the correct view before gameplay begins, and maintains the camera in a fixed position throughout the game since Pong requires no camera movement or scrolling."
+      }
+    ]
+  },
+  "children": []
+}
+
+{
+  "object": {
+    "name": "StartScreen",
+    "components": [
+      "Canvas",
+      "CanvasScaler",
+      "GraphicRaycaster"
+    ],
+    "scripts": [
+      {
+        "name": "StartScreenController",
+        "role": "Manages the start screen UI behavior and user interactions. This script controls the visibility of the start screen by enabling/disabling the Canvas or its child elements based on game state. It handles the Start Game button click event by communicating with GameManager to transition from the start screen to the Playing state via GameManager.StartGame(). The script may also handle any additional menu options such as quit button functionality. It listens for game state changes from GameManager to show/hide itself appropriately (visible during Start state, hidden during Playing/Paused/GameOver states). The script initializes on Awake() to ensure the start screen is properly displayed when the game first launches, and provides methods like Show() and Hide() for GameManager to control visibility during state transitions."
+      }
+    ]
+  },
+  "children": [
+    {
+      "hierarchy_name": "StartScreen/Background",
+      "components": [
+        "Image",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "StartScreen/TitleText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "StartScreen/StartButton",
+      "components": [
+        "Image",
+        "Button",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "StartScreen/StartButton/ButtonText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "StartScreen/InstructionsText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    }
+  ]
+}
+
+{
+  "object": {
+    "name": "PauseMenu",
+    "components": [
+      "Canvas",
+      "CanvasScaler",
+      "GraphicRaycaster"
+    ],
+    "scripts": [
+      {
+        "name": "PauseMenuController",
+        "role": "Manages the pause menu UI behavior and user interactions. This script controls the visibility of the pause menu overlay by enabling/disabling the Canvas or its child elements based on game state. It handles button click events for Resume (calls GameManager.ResumeGame() to unpause and return to Playing state), Restart (calls GameManager.RestartGame() to reset scores and ball position for a new match), and Quit (calls GameManager.QuitToMenu() to return to the StartScreen). The script listens for game state changes from GameManager to show/hide itself appropriately (visible only during Paused state, hidden during Start/Playing/GameOver states). It provides public methods Show() and Hide() that GameManager can call during state transitions. The script ensures the pause menu appears centered on screen as an overlay above the gameplay elements when the player presses the pause key."
+      }
+    ]
+  },
+  "children": [
+    {
+      "hierarchy_name": "PauseMenu/Background",
+      "components": [
+        "Image",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/PausedText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/ResumeButton",
+      "components": [
+        "Image",
+        "Button",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/ResumeButton/ButtonText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/RestartButton",
+      "components": [
+        "Image",
+        "Button",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/RestartButton/ButtonText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/QuitButton",
+      "components": [
+        "Image",
+        "Button",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "PauseMenu/QuitButton/ButtonText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    }
+  ]
+}
+
+{
+  "object": {
+    "name": "GameOverScreen",
+    "components": [
+      "Canvas",
+      "CanvasScaler",
+      "GraphicRaycaster"
+    ],
+    "scripts": [
+      {
+        "name": "GameOverScreenController",
+        "role": "Manages the game over screen UI behavior and user interactions. This script controls the visibility of the game over screen by enabling/disabling the Canvas or its child elements based on game state. It listens for game state changes from GameManager and the OnGameWon event from ScoreManager to show itself when a match concludes. The script updates the final score display and winner announcement text based on the match results retrieved from ScoreManager (GetPlayerScore() and GetAIScore()). It handles button click events for Play Again (calls GameManager.RestartGame() to reset scores and start a new match) and Quit to Menu (calls GameManager.QuitToMenu() to return to the StartScreen). The script provides public methods Show() and Hide() that GameManager can call during state transitions, and a SetWinner() or UpdateResults() method to display the appropriate victory/defeat message and final scores. It ensures the game over screen is hidden during Start/Playing/Paused states and only visible during the GameOver state."
+      }
+    ]
+  },
+  "children": [
+    {
+      "hierarchy_name": "GameOverScreen/Background",
+      "components": [
+        "Image",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/GameOverText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/WinnerText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/FinalScoreText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/PlayAgainButton",
+      "components": [
+        "Image",
+        "Button",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/PlayAgainButton/ButtonText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/QuitButton",
+      "components": [
+        "Image",
+        "Button",
+        "RectTransform"
+      ],
+      "scripts": []
+    },
+    {
+      "hierarchy_name": "GameOverScreen/QuitButton/ButtonText",
+      "components": [
+        "TextMeshProUGUI",
+        "RectTransform"
+      ],
+      "scripts": []
+    }
+  ]
 }
 

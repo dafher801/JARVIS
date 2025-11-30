@@ -1,0 +1,28 @@
+We will now create each none prefab object one by one. During this process, you can add sub-objects inside the prefab or add components.
+{
+  "object": {
+    "name": {OBJECT_NAME},
+    "components": [ ... ], <<<List the components needed for this object as multiple strings. Include Unity's built-in components here, using their exact Unity names. If no components other than Transform are needed, use an empty array.>>>
+    "scripts": [ <<<List the scripts that need to be written as .cs files and added as components to this object. If none are needed, use an empty array.>>>
+      {
+        "name": <<<Write the name of this script file.>>>,
+        "role": <<<Describe the role of this script in detail.>>>
+      },
+      .....
+    ]
+  },
+  "children": [ <<<List the child objects needed for this object. If a child object added at the object's root requires additional child objects, those must also be added here. If none are needed, use an empty array.>>>
+    {
+      "hierarchy_name": <<<Write the path of the child object. The path is represented using '/', with the object's name as the root, followed by the hierarchical structure of child objects.>>>,
+      "components": [ ... ], <<<List the components needed for this child object as multiple strings. Include Unity's built-in components here, using their exact Unity names. If no components other than Transform are needed, use an empty array.>>>
+      "scripts": [ <<<List the scripts that need to be written as .cs files and added as components to this child object. If none are needed, use an empty array.>>>
+        {
+          "name": <<<Write the name of this script file. It must be the same as the name of the class contained in this file.>>>,
+          "role": <<<Describe the role of this script in detail.>>>
+        },
+        .....
+      ]
+    },
+    .....
+  ]
+}

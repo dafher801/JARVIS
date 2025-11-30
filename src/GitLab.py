@@ -149,14 +149,14 @@ class GitLab:
             print('응답 내용:', response.text)
             return None
 
-if __name__ == '__main__':
-    gitlab = GitLab()
-    # 1. 프로젝트 조회
-    project_info = gitlab.get_project_by_name(
-        project_name='test-project-from-api',
-        success_msg='프로젝트 조회 성공!',
-        fail_msg='프로젝트 조회 실패...'
-    )
+# if __name__ == '__main__':
+#     gitlab = GitLab()
+#     # 1. 프로젝트 조회
+#     project_info = gitlab.get_project_by_name(
+#         project_name='test-project-from-api',
+#         success_msg='프로젝트 조회 성공!',
+#         fail_msg='프로젝트 조회 실패...'
+#     )
     # if project_info:
     #     project_id = project_info['id']
     #     invitee_email = '20245459@vision.hoseo.edu'  # 실제 초대할 이메일로 변경 필요

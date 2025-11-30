@@ -1,0 +1,14 @@
+Follow the instructions below to generate an answer that fits your needs in the given JSON format:
+1. Here is the request you need to address:
+<request>
+{REQUEST}
+</request>
+2. Your response should strictly adhere to the following JSON format:
+<json_format>
+{JSON_FORMAT}
+</json_format>
+3. Use the following reference data to inform your response:
+<reference_data>
+{REFERENCE_DATA}
+</reference_data>
+4. Important: Your entire output must be valid JSON. Do not include any text before or after the JSON object.

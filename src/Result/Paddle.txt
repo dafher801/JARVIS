@@ -1,0 +1,21 @@
+{
+  "prefab": {
+    "name": "Paddle",
+    "components": [
+      "SpriteRenderer",
+      "BoxCollider2D",
+      "Rigidbody2D"
+    ],
+    "scripts": [
+      {
+        "name": "PaddleMovement",
+        "role": "Handles the vertical movement of the paddle, constraining it within the playing field boundaries. Provides a common movement interface that can be called by either player input or AI control systems. Includes movement speed configuration and boundary limit parameters to prevent the paddle from moving outside the playable area."
+      },
+      {
+        "name": "PaddleBallInteraction",
+        "role": "Manages the collision response when the ball contacts the paddle. Calculates the reflection angle based on where the ball hits the paddle surface (center hits return straight, edge hits return at sharper angles). This creates more dynamic and skillful gameplay as players can aim their returns based on paddle positioning."
+      }
+    ]
+  },
+  "children": []
+}

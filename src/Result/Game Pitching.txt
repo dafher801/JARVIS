@@ -1,0 +1,56 @@
+{
+  "title": "Pong Classic",
+  "logline": "A faithful recreation of the timeless arcade classic where two paddles battle for supremacy in a minimalist arena of pure reflexes and escalating intensity.",
+  "genre": {
+    "primary": "Sports",
+    "style": ["Arcade", "Casual", "Competitive", "Twitch"]
+  },
+  "theme": {
+    "setting": "Abstract",
+    "tone": "Tense"
+  },
+  "perspective": "Side-Scrolling",
+  "player_structure": {
+    "mode": "Singleplayer",
+    "player_count": "1"
+  },
+  "references": [
+    {
+      "game_name": "Pong (1972)",
+      "game_logline": "The pioneering table tennis arcade game that launched the video game industry with its simple yet addictive two-paddle gameplay.",
+      "similarity": "Complete recreation of the original game mechanics, visual style, and core gameplay loop."
+    },
+    {
+      "game_name": "Breakout",
+      "game_logline": "A brick-breaking arcade game where players use a paddle to bounce a ball and destroy blocks.",
+      "similarity": "Shares the paddle-and-ball mechanics with progressively challenging gameplay through ball speed increases."
+    }
+  ],
+  "target_audience": {
+    "demographic": "All ages, global audience, particularly appealing to retro gaming enthusiasts and those seeking simple, accessible gameplay",
+    "player_type": "Casual",
+    "context": "Quick pick-up-and-play sessions during short breaks, perfect for testing reflexes or introducing newcomers to classic gaming experiences."
+  },
+  "player_character": {
+    "identity": "An abstract paddle entity, representing the player's direct control and reflexes in a minimalist competitive arena.",
+    "core_fantasy": "Achieving perfect timing and reflexes to outmaneuver an opponent in a pure test of skill where every millisecond counts."
+  },
+  "unique_selling_points": [
+    "A faithful recreation of the original Pong experience, preserving the authentic arcade feel that defined the birth of video games.",
+    "Progressive difficulty through ball speed acceleration with each successful hit, creating an escalating tension curve that rewards skilled play."
+  ],
+  "emotional_goals": {
+    "target_emotions": [
+      "Tension",
+      "Focus",
+      "Triumph",
+      "Frustration",
+      "Satisfaction"
+    ],
+    "peak_moment": "The heart-pounding rally when the ball reaches maximum speed, demanding split-second reactions, culminating in either a triumphant defensive save or a decisive point."
+  },
+  "platform": [
+    "Web",
+    "PC"
+  ]
+}

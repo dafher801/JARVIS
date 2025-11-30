@@ -68,5 +68,5 @@ class RecorderApp(App):
         Window.size = (360, 640)
         return Recorder()
 
-if __name__ == '__main__':
-    RecorderApp().run()
+# if __name__ == '__main__':
+#     RecorderApp().run()

@@ -1,0 +1,338 @@
+{
+  "title": "Pong Classic",
+  "logline": "A faithful recreation of the timeless arcade classic where two paddles battle for supremacy in a minimalist arena of pure reflexes and escalating intensity.",
+  "genre": {
+    "primary": "Sports",
+    "style": ["Arcade", "Casual", "Competitive", "Twitch"]
+  },
+  "theme": {
+    "setting": "Abstract",
+    "tone": "Tense"
+  },
+  "perspective": "Side-Scrolling",
+  "player_structure": {
+    "mode": "Singleplayer",
+    "player_count": "1"
+  },
+  "references": [
+    {
+      "game_name": "Pong (1972)",
+      "game_logline": "The pioneering table tennis arcade game that launched the video game industry with its simple yet addictive two-paddle gameplay.",
+      "similarity": "Complete recreation of the original game mechanics, visual style, and core gameplay loop."
+    },
+    {
+      "game_name": "Breakout",
+      "game_logline": "A brick-breaking arcade game where players use a paddle to bounce a ball and destroy blocks.",
+      "similarity": "Shares the paddle-and-ball mechanics with progressively challenging gameplay through ball speed increases."
+    }
+  ],
+  "target_audience": {
+    "demographic": "All ages, global audience, particularly appealing to retro gaming enthusiasts and those seeking simple, accessible gameplay",
+    "player_type": "Casual",
+    "context": "Quick pick-up-and-play sessions during short breaks, perfect for testing reflexes or introducing newcomers to classic gaming experiences."
+  },
+  "player_character": {
+    "identity": "An abstract paddle entity, representing the player's direct control and reflexes in a minimalist competitive arena.",
+    "core_fantasy": "Achieving perfect timing and reflexes to outmaneuver an opponent in a pure test of skill where every millisecond counts."
+  },
+  "unique_selling_points": [
+    "A faithful recreation of the original Pong experience, preserving the authentic arcade feel that defined the birth of video games.",
+    "Progressive difficulty through ball speed acceleration with each successful hit, creating an escalating tension curve that rewards skilled play."
+  ],
+  "emotional_goals": {
+    "target_emotions": [
+      "Tension",
+      "Focus",
+      "Triumph",
+      "Frustration",
+      "Satisfaction"
+    ],
+    "peak_moment": "The heart-pounding rally when the ball reaches maximum speed, demanding split-second reactions, culminating in either a triumphant defensive save or a decisive point."
+  },
+  "platform": [
+    "Web",
+    "PC"
+  ]
+}
+
+{
+  "title": "Pong Classic",
+  "rule": "Two paddles compete to hit a ball back and forth across the playing field. A point is scored when the opponent fails to return the ball. The ball accelerates with each successful hit, increasing difficulty progressively. The game continues until a predetermined score is reached or indefinitely in endless mode. In single-player mode, the player competes against an AI-controlled opponent.",
+  "objects": [
+    {
+      "name": "Ball",
+      "type": "World",
+      "description": "The central gameplay element that spawns at the center and travels between paddles, increasing in speed with each successful hit."
+    },
+    {
+      "name": "PlayerPaddle",
+      "type": "World",
+      "description": "The player-controlled paddle positioned on one side of the field that moves vertically to intercept and return the ball."
+    },
+    {
+      "name": "AIPaddle",
+      "type": "World",
+      "description": "The AI-controlled opponent paddle on the opposite side that autonomously tracks and attempts to return the ball."
+    },
+    {
+      "name": "TopWall",
+      "type": "World",
+      "description": "A collision boundary at the top of the playing field that causes the ball to bounce back when contacted."
+    },
+    {
+      "name": "BottomWall",
+      "type": "World",
+      "description": "A collision boundary at the bottom of the playing field that causes the ball to bounce back when contacted."
+    },
+    {
+      "name": "LeftGoalZone",
+      "type": "World",
+      "description": "A trigger zone behind the player paddle that detects when the ball passes through, resulting in a point for the opponent."
+    },
+    {
+      "name": "RightGoalZone",
+      "type": "World",
+      "description": "A trigger zone behind the AI paddle that detects when the ball passes through, resulting in a point for the player."
+    },
+    {
+      "name": "CenterLine",
+      "type": "World",
+      "description": "A visual divider in the middle of the playing field that serves as a decorative element separating the two halves."
+    },
+    {
+      "name": "GameManager",
+      "type": "Logic",
+      "description": "The central controller that manages overall game flow including game start, pause, restart, and transitioning between game states."
+    },
+    {
+      "name": "ScoreManager",
+      "type": "Logic",
+      "description": "Tracks and updates the score for both the player and AI opponent, determining when scoring events occur."
+    },
+    {
+      "name": "BallSpawner",
+      "type": "Logic",
+      "description": "Handles the spawning and initial direction of the ball at the center of the field at game start and after each point."
+    },
+    {
+      "name": "BallPhysicsController",
+      "type": "Logic",
+      "description": "Manages ball movement, collision responses, angle calculations upon paddle contact, and speed acceleration with each hit."
+    },
+    {
+      "name": "AIController",
+      "type": "Logic",
+      "description": "Controls the AI paddle behavior, determining its movement patterns and reaction timing to track and intercept the ball."
+    },
+    {
+      "name": "InputManager",
+      "type": "Logic",
+      "description": "Processes player input for paddle movement, translating keyboard or controller commands into paddle motion."
+    },
+    {
+      "name": "ScoreDisplay",
+      "type": "Interface",
+      "description": "UI element that displays the current score for both the player and opponent on screen."
+    },
+    {
+      "name": "MainMenuUI",
+      "type": "Interface",
+      "description": "The initial menu interface allowing players to start a new game or access other options before gameplay begins."
+    },
+    {
+      "name": "PauseMenuUI",
+      "type": "Interface",
+      "description": "An overlay interface that appears when the game is paused, offering options to resume, restart, or quit."
+    },
+    {
+      "name": "GameOverUI",
+      "type": "Interface",
+      "description": "The end-game screen displaying final scores and providing options to replay or return to the main menu."
+    },
+    {
+      "name": "GameCamera",
+      "type": "Interface",
+      "description": "A fixed orthographic camera that provides a top-down or side view of the entire playing field, ensuring all gameplay elements are visible."
+    }
+  ]
+}
+
+{
+  "prefabs": [
+    {
+      "name": "Paddle",
+      "targets": ["PlayerPaddle", "AIPaddle"],
+      "role": "A rectangular paddle entity that moves vertically along its designated side of the playing field to intercept and return the ball. Contains visual representation (sprite/mesh), collider component for ball collision detection, and base movement functionality.",
+      "reason": "Both PlayerPaddle and AIPaddle share identical visual appearance, collision behavior, and movement mechanics (vertical movement constrained to field bounds). The only difference is the control source (player input vs AI logic), which can be handled by attaching different controller scripts to the same base prefab. This promotes code reuse and ensures visual consistency between player and opponent paddles."
+    },
+    {
+      "name": "Wall",
+      "targets": ["TopWall", "BottomWall"],
+      "role": "A collision boundary object positioned at the horizontal edges of the playing field that reflects the ball when contacted. Contains a collider component configured to bounce the ball at appropriate angles.",
+      "reason": "TopWall and BottomWall are functionally identical objects with the same collision behavior and visual representation, differing only in their position (top vs bottom of the field). Creating a single Wall prefab allows for consistent collision handling and easy placement at both boundaries without duplicating assets or code."
+    },
+    {
+      "name": "GoalZone",
+      "targets": ["LeftGoalZone", "RightGoalZone"],
+      "role": "An invisible trigger zone positioned behind each paddle that detects when the ball passes through, triggering a scoring event. Contains a trigger collider and references to identify which side scored.",
+      "reason": "Both goal zones serve the same purpose of detecting when the ball exits the playing field on their respective sides. They share identical detection logic and only differ in position and which player receives the point. A single prefab with a configurable 'scoring side' parameter enables consistent scoring detection while avoiding code duplication."
+    },
+    {
+      "name": "Ball",
+      "targets": ["Ball"],
+      "role": "The central gameplay object that spawns at the center of the field, travels between paddles, bounces off walls and paddles, and accelerates with each successful hit. Contains visual representation, physics/collision components, and movement properties.",
+      "reason": "While there is only one ball in the game, making it a prefab is essential for the spawning system. The BallSpawner needs to instantiate the ball at game start and after each point is scored. A prefab allows for clean instantiation, destruction, and re-spawning of the ball with consistent initial properties each time."
+    }
+  ],
+  "none_prefabs": [
+    {
+      "name": "CenterLine",
+      "role": "A static visual divider element in the middle of the playing field that serves purely as a decorative element to separate the two halves of the arena.",
+      "reason": "CenterLine is a unique, static visual element that exists only once in the scene and never needs to be instantiated dynamically. It has no gameplay logic, no collision behavior, and no need for reuse. It should be placed directly in the scene as a simple sprite or line renderer."
+    },
+    {
+      "name": "GameManager",
+      "role": "The central singleton controller that manages overall game flow including game start, pause, restart, and state transitions.",
+      "reason": "GameManager is a logic-only singleton that exists once per game session. It should be attached to an empty GameObject in the scene or implemented as a persistent singleton pattern. There is no need for multiple instances or dynamic spawning."
+    },
+    {
+      "name": "ScoreManager",
+      "role": "Tracks and updates scores for both player and AI opponent, handling scoring events and win conditions.",
+      "reason": "ScoreManager is a single instance logic controller that manages game-wide score state. It does not need instantiation or reuse and should exist as a scene object or singleton service."
+    },
+    {
+      "name": "BallSpawner",
+      "role": "Handles spawning the ball at the center of the field at game start and after each point, determining initial ball direction.",
+      "reason": "BallSpawner is a single logic component that uses the Ball prefab to instantiate balls. It itself does not need to be a prefab as only one spawner exists in the game."
+    },
+    {
+      "name": "BallPhysicsController",
+      "role": "Manages ball movement physics, collision responses, angle calculations, and speed acceleration mechanics.",
+      "reason": "This is a logic script component that would be attached to the Ball prefab rather than being a separate prefab itself. It handles the ball's behavior but is not an independent instantiable object."
+    },
+    {
+      "name": "AIController",
+      "role": "Controls AI paddle behavior including movement patterns, reaction timing, and ball tracking logic.",
+      "reason": "AIController is a logic script component that would be attached to the AIPaddle instance. It is not a standalone object requiring prefab instantiation."
+    },
+    {
+      "name": "InputManager",
+      "role": "Processes player input for paddle movement, translating keyboard or controller commands into paddle motion.",
+      "reason": "InputManager is a singleton service or scene-level component that handles input processing. It does not require dynamic instantiation or multiple instances."
+    },
+    {
+      "name": "ScoreDisplay",
+      "role": "UI element displaying current scores for both player and opponent on screen.",
+      "reason": "ScoreDisplay is a unique UI element that exists as part of the Canvas hierarchy. UI elements in Pong are simple and static, not requiring prefab-based instantiation."
+    },
+    {
+      "name": "MainMenuUI",
+      "role": "Initial menu interface for starting new games and accessing options before gameplay.",
+      "reason": "MainMenuUI is a unique scene-based UI panel. It is either part of a separate menu scene or a single Canvas panel, not requiring prefab instantiation."
+    },
+    {
+      "name": "PauseMenuUI",
+      "role": "Overlay interface appearing when game is paused with resume, restart, and quit options.",
+      "reason": "PauseMenuUI is a single UI panel that is activated/deactivated rather than instantiated. It exists once in the game scene's Canvas."
+    },
+    {
+      "name": "GameOverUI",
+      "role": "End-game screen showing final scores with replay and main menu options.",
+      "reason": "GameOverUI is a unique UI panel shown once at game end. It is toggled visible rather than instantiated dynamically."
+    },
+    {
+      "name": "GameCamera",
+      "role": "Fixed orthographic camera providing a complete view of the playing field ensuring all gameplay elements are visible.",
+      "reason": "GameCamera is a single, static camera object in the scene. There is only one camera needed and it never changes or gets instantiated dynamically."
+    }
+  ]
+}
+
+{
+  "prefab": {
+    "name": "Paddle",
+    "components": [
+      "SpriteRenderer",
+      "BoxCollider2D",
+      "Rigidbody2D"
+    ],
+    "scripts": [
+      {
+        "name": "PaddleMovement",
+        "role": "Handles the vertical movement of the paddle, constraining it within the playing field boundaries. Provides a common movement interface that can be called by either player input or AI control systems. Includes movement speed configuration and boundary limit parameters to prevent the paddle from moving outside the playable area."
+      },
+      {
+        "name": "PaddleBallInteraction",
+        "role": "Manages the collision response when the ball contacts the paddle. Calculates the reflection angle based on where the ball hits the paddle surface (center hits return straight, edge hits return at sharper angles). This creates more dynamic and skillful gameplay as players can aim their returns based on paddle positioning."
+      }
+    ]
+  },
+  "children": []
+}
+
+{
+  "prefab": {
+    "name": "Paddle",
+    "components": [
+      "SpriteRenderer",
+      "BoxCollider2D",
+      "Rigidbody2D"
+    ],
+    "scripts": [
+      {
+        "name": "PaddleMovement",
+        "role": "Handles the vertical movement of the paddle, constraining it within the playing field boundaries. Provides a common movement interface that can be called by either player input or AI control systems. Includes movement speed configuration and boundary limit parameters to prevent the paddle from moving outside the playable area."
+      },
+      {
+        "name": "PaddleBallInteraction",
+        "role": "Manages the collision response when the ball contacts the paddle. Calculates the reflection angle based on where the ball hits the paddle surface (center hits return straight, edge hits return at sharper angles). This creates more dynamic and skillful gameplay as players can aim their returns based on paddle positioning."
+      }
+    ]
+  },
+  "children": []
+}
+
+{
+  "prefab": {
+    "name": "Paddle",
+    "components": [
+      "SpriteRenderer",
+      "BoxCollider2D",
+      "Rigidbody2D"
+    ],
+    "scripts": [
+      {
+        "name": "PaddleMovement",
+        "role": "Handles the vertical movement of the paddle, constraining it within the playing field boundaries. Provides a common movement interface that can be called by either player input or AI control systems. Includes movement speed configuration and boundary limit parameters to prevent the paddle from moving outside the playable area."
+      },
+      {
+        "name": "PaddleBallInteraction",
+        "role": "Manages the collision response when the ball contacts the paddle. Calculates the reflection angle based on where the ball hits the paddle surface (center hits return straight, edge hits return at sharper angles). This creates more dynamic and skillful gameplay as players can aim their returns based on paddle positioning."
+      }
+    ]
+  },
+  "children": []
+}
+
+{
+  "prefab": {
+    "name": "Paddle",
+    "components": [
+      "SpriteRenderer",
+      "BoxCollider2D",
+      "Rigidbody2D"
+    ],
+    "scripts": [
+      {
+        "name": "PaddleMovement",
+        "role": "Handles the vertical movement of the paddle, constraining it within the playing field boundaries. Provides a common movement interface that can be called by either player input or AI control systems. Includes movement speed configuration and boundary limit parameters to prevent the paddle from moving outside the playable area."
+      },
+      {
+        "name": "PaddleBallInteraction",
+        "role": "Manages the collision response when the ball contacts the paddle. Calculates the reflection angle based on where the ball hits the paddle surface (center hits return straight, edge hits return at sharper angles). This creates more dynamic and skillful gameplay as players can aim their returns based on paddle positioning."
+      }
+    ]
+  },
+  "children": []
+}
+
